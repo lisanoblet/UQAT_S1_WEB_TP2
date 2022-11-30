@@ -5,6 +5,68 @@ gsap.registerPlugin(ScrollTrigger);
 // document.querySelector('.video_intro').playbackRate = .5;
 
 
+// const hamburger = document.querySelector(".hamburger");
+// const navMenu = document.querySelector(".navigation");
+
+// hamburger.addEventListener("click", mobileMenu);
+
+// function mobileMenu() {
+//     hamburger.classList.toggle("active");
+//     navMenu.classList.toggle("active");
+// }
+
+
+// const navLink = document.querySelectorAll(".nav-item");
+
+// navLink.forEach(n => n.addEventListener("click", closeMenu));
+
+// function closeMenu() {
+//     hamburger.classList.remove("active");
+//     navMenu.classList.remove("active");
+// }
+
+
+
+let autres_titres = document.querySelector(".autres_titres");
+
+let menu_hamburger = document.querySelector(".hamburger");
+
+menu_hamburger.addEventListener("click", mobileMenu);
+
+function mobileMenu() {
+if(autres_titres.classList.contains("autres_titres_mobile")){
+  autres_titres.classList.remove("autres_titres_mobile");
+  menu_hamburger.style.opacity = "1"; 
+
+
+}
+else {
+  autres_titres.classList.add("autres_titres_mobile");  
+  menu_hamburger.style.opacity = "0.5"; 
+  
+}
+
+
+// document.addEventListener("click", function(){
+//   autres_titres.classList.remove("autres_titres_mobile");
+
+// });
+
+}
+
+
+let links_nav = document.querySelectorAll(".nav-item");
+
+links_nav.forEach(n => n.addEventListener("click", closeMenu));
+
+function closeMenu() {
+  autres_titres.classList.remove("autres_titres_mobile");
+}
+
+
+
+
+
 gsap.from(".h1_introduction", {
   opacity: 0,
   x: 400,
@@ -88,130 +150,28 @@ equipe_div.forEach(section => {
 
 
 
-/* PARTIE OBJECTIFS */
 
-// gsap.from(".ottawa_images", {
-//     opacity: 0,
-//     xPercent: -100,
-//     scrollTrigger: {
-//         trigger: ".ottawa_images",
-//         start: "top bottom",
-//         markers: true,
-//         end: "top center",
-//         //Events : onEnter, onLeave, onEnterBack, onLeaveBack
-//         toggleActions: "play resume none none ",
-//         //Options: play, pause, resume, reset, restart, complete, reverse, none
-// scrub: true,
-// //link animation au scroll de la souris 
-//     }
-// });
-
-// gsap.from(".ottawa_airbnb_images", {
-//     opacity: 0,
-//     xPercent: 100,
-//     scrollTrigger: {
-//         trigger: ".ottawa_airbnb_images",
-//         start: "top bottom",
-//         markers: true,
-//         end: "top center",
-//         toggleActions: "play resume none none ",
-// scrub: true,
-//     }
-// });
+// section activités 
 
 
-// gsap.from(".ottawa_souhaits", {
-//     opacity: 0,
-//     scrollTrigger: {
-//         trigger: ".ottawa_souhaits",
-//         start: "top bottom",
-//         markers: true,
-//         end: "top center",
-//         toggleActions: "play resume none none ",
-// scrub: true,
-//     }
-// });
+// let activites_timeline = gsap.timeline({onComplete: maFonction, repeat: 1, repeatDelay: 3, yoyo:true});
+//     fish.from(".poisson #fish", {opacity:1, xPercent:-200, rotation:200, duration:1}),
+//     fish.from(".poisson .text", {opacity:0, scale:10, duration:1.2, ease:"power4"}),
+//     fish.from(".poisson #jimmy", {opacity:0, skewX:15, duration:0.3, scale:0.5, duration:1, ease:"power2"}, "-=0.7"),
+//     fish.from(".wall", {xPercent:-100, duration:1, ease:"bounce"});
 
-// gsap.from(".ottawa_souhaits_liste", {
-//     opacity: 0,
-//     scrollTrigger: {
-//         trigger: ".ottawa_souhaits",
-//         start: "top bottom",
-//         markers: true,
-//         end: "top center",
-//         toggleActions: "play resume none none ",
-// scrub: true,
-//     }
-// });
-
-// let activite = document.querySelector('.activite2')
-// gsap.from(".activites_photos", {
-//   opacity: 0,
-//   xPercent: activite.scrollWidth,
-
-//   scrollTrigger: {
-//       trigger: ".activites_photos",
-//       start: "top bottom",
-//       markers: true,
-//       end: "center center",
-//       //Events : onEnter, onLeave, onEnterBack, onLeaveBack
-//       toggleActions: "play resume none none ",
-//       //Options: play, pause, resume, reset, restart, complete, reverse, none
-// scrub: true,
-// //link animation au scroll de la souris 
-//   }
-// });
-
-
-// let activite = document.querySelector('.activite2')
-
-// gsap.fromTo(".box", {
-//   opacity: 0,
-//     xPercent: activite.scrollWidth,
-
-//     scrollTrigger: {
-//         trigger: ".activites_photos",
-//         start: "top bottom",
-//         markers: true,
-//         end: "center center",
-//         //Events : onEnter, onLeave, onEnterBack, onLeaveBack
-//         toggleActions: "play resume none none ",
-//         //Options: play, pause, resume, reset, restart, complete, reverse, none
-// }, {
-//   xPercent: -1000,
-//   scrub: true
-// });
+//     ScrollTrigger.create({
+//         animation:fish,
+//         trigger:".poisson",
+//         markers:true,
+//         start:"center center",
+//         toggleActions:"restart none none reverse",
+//         //scrub:true,
+//         //pin:true,
+//       });
 
 
 
-// gsap.utils.toArray('.activites_photos').forEach((div, index) => {
-//   const w = div.querySelector('.wrapper');
-//   const [x, xEnd] = index % 2 ? ['100%', (w.scrollWidth - div.offsetWidth) * -1] : [w.scrollWidth * -1, 0];
-//   gsap.fromTo(w, { x }, {
-//     x: xEnd,
-//     scrollTrigger: {
-//       trigger: div,
-//       scrub: 0.5 } });
-
-
-// });
-
-
-// gsap.fromTo(".activites_photos", {
-//   xPercent: 100
-// }, {
-//     xPercent: -100, 
-//     duration: 1,
-//   //   scrollTrigger: {
-//   //             trigger: ".activites_photos",
-//   //             start: "top bottom",
-//   //             markers: true,
-//   //             end: "center center",
-//   //             //Events : onEnter, onLeave, onEnterBack, onLeaveBack
-//   //             toggleActions: "play resume none none "
-
-//   // },
-//   );
 
 
 
@@ -226,69 +186,13 @@ let galerie1 = document.querySelector('.galerie1');
 let galerie_div = document.querySelector('.galerie_div');
 
 
-// return - ((conteneur_cartes.scrollWidth - window.innerWidth + window.innerWidth*0.05) + (window.innerWidth/2 - personne_carte.offsetWidth/2))
 
-
-// gsap.fromTo(".galerie_photos", {
-//   xPercent: 0,
-// }, {
-//   xPercent:  -(conteneur_photos.scrollWidth - window.innerWidth + window.innerWidth),
-//   // duration: 10,
-//   // ease: "elastic",
-//   scrollTrigger: {
-//             trigger: ".galerie_photos",
-//             start: "top bottom",
-//             markers: true,
-//             end: "top top",
-//             toggleActions: "play resume none none ",
-//     scrub: true,
-//         }
-
-// });
-
-// gsap.to(conteneur_photos, 
-//   {
-    
-//   x: - (conteneur_photos.scrollWidth/2),
-//   ease: "none",
-
-//     scrollTrigger: {
-//               trigger: galerie_div,
-//               start: "center center",
-//               markers: true,
-//               end: () => "+=" + (conteneur_photos.scrollWidth),
-//               scrub: true,
-//       pin: true,
-//       anticipatePin: 1,
-//       invalidateOnRefresh: true,
-
-//           }
-  
-//   });
-
-
-
-
-  // x: () => {
-  //     return - ((conteneur_cartes.scrollWidth - window.innerWidth + window.innerWidth*0.05) + (window.innerWidth/2 - personne_carte.offsetWidth/2))
-  //     // return -conteneur_cartes.scrollWidth + personne_carte.offsetWidth * 4.5
-  //   },
-  //   ease: "none",
-  //   scrollTrigger: {
-  //     trigger: section,
-  //     start: () => "center center",
-  //     end: () => "+=" + conteneur_cartes.scrollWidth,
-  //     scrub: true,
-  //     pin: true,
-  //     invalidateOnRefresh: true,
-  //     anticipatePin: 1,
-  //     markers: true,
 
   gsap.fromTo(".galerie_photos", {
     xPercent: 0,
   }, {
     // xPercent: -activites3_photos.scrollWidth,
-      xPercent: -10,
+      xPercent: -12,
   
     // duration: 10,
     // ease: "elastic",
@@ -336,3 +240,14 @@ gsap.fromTo(".galerie3_photos", {
     scrub: true,
         }
 });
+
+
+
+
+
+
+
+
+
+
+
