@@ -15,7 +15,7 @@ body {
 
 	height: auto;
 	width: 100%;
-	overflow-x: hidden;
+	overflow-x: hidden!important;
 	/* display: inline-block; */
 }
 
@@ -650,42 +650,45 @@ a {
 
 
 
-.hamburger{
-	display: block;
-	cursor: pointer;
-}
 
-.autres_titres{
-	display: none;
-	background-color:rgba(235, 235, 235, 0.422);
-	
-	text-align: right;
-}
-
-.autres_titres_mobile{
-	display: flex;
-	flex-direction: column;
-	width: 100vw;
-	height: 100vh;
-	/* top: 5vh;
-	right: 5vw; */
-	/* transition: 0.5s; */
-}
 /* 1er breakpoint */
 @media only screen and (max-width: 768px) {
+	.navigation{
+		top: 1%;
+		left: 2%;
+		width: 90vw;
 	
-.navigation{
-	top: 1%;
-	left: 2%;
-	width: 80vw;
+	}
+	
+	.navigation .titre{
+	
+		width: 20vw;
+	
+	}
+	.hamburger{
+		display: block;
+		cursor: pointer;
+	}
+	
+	.autres_titres{
+		display: none;
+		background-color:rgba(235, 235, 235, 0.422);
+		
+		text-align: right;
+	}
+	
+	.autres_titres_mobile{
+		display: flex;
+		flex-direction: column;
+		width: 100vw;
+		height: 100vh;
+		/* top: 5vh;
+		right: 5vw; */
+		/* transition: 0.5s; */
+	}
 
-}
 
-.navigation .titre{
 
-	width: 20vw;
-
-}
 
 .equipe_div{
 
