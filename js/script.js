@@ -171,6 +171,42 @@ equipe_div.forEach(section => {
 //       });
 
 
+let activites = document.querySelectorAll(".activite_carte");
+
+activites.forEach((element) => {
+	let photo = element.querySelectorAll(".activite_photo");
+  let description = element.querySelectorAll(".activite_description") 
+
+    gsap.set(photo, { scale:0 });
+  
+    gsap.to(photo, {
+        duration: 1.2,
+        autoAlpha:1,
+        scale: 1,
+        ease: "power2.out",
+        scrollTrigger: {
+            trigger: photo,
+            start: "top bottom-=100",
+            end: "bottom top+=100",
+            toggleActions: "play resume reverse none"
+        }
+    });
+
+    gsap.set(description, { scale:0 });
+  
+    gsap.to(description, {
+        duration: 1,
+        autoAlpha:1,
+        scale: 1,
+        ease: "power2.out",
+        scrollTrigger: {
+            trigger: photo,
+            start: "top bottom-=100",
+            end: "bottom top+=100",
+            toggleActions: "play resume reverse none"
+        }
+    });
+})
 
 
 
@@ -188,66 +224,125 @@ let galerie_div = document.querySelector('.galerie_div');
 
 
 
-  gsap.fromTo(".galerie_photos", {
-    xPercent: 0,
-  }, {
-    // xPercent: -activites3_photos.scrollWidth,
-      xPercent: -12,
+//   gsap.fromTo(".galerie_photos", {
+//     xPercent: 0,
+//   }, {
+//     // xPercent: -activites3_photos.scrollWidth,
+//       xPercent: -12,
   
-    // duration: 10,
-    // ease: "elastic",
-    scrollTrigger: {
-              trigger: ".galerie_photos",
-              start: "top bottom",
-              markers: true,
-              end: "top top",
-              toggleActions: "play resume none none ",
-      scrub: true,
-          }
+//     // duration: 10,
+//     // ease: "elastic",
+//     scrollTrigger: {
+//               trigger: ".galerie_photos",
+//               start: "top bottom",
+//               markers: true,
+//               end: "top top",
+//               toggleActions: "play resume none none ",
+//       scrub: true,
+//           }
+//   });
+
+// gsap.fromTo(".galerie2_photos", {
+//   xPercent: -14,
+// }, {
+//   xPercent: -4,
+//   // duration: 10,
+//   // ease: "elastic",
+//   scrollTrigger: {
+//             trigger: ".galerie2_photos",
+//             start: "top bottom",
+//             markers: true,
+//             end: "top top",
+//             toggleActions: "play resume none none ",
+//     scrub: true,
+//         }
+// });
+
+
+// gsap.fromTo(".galerie3_photos", {
+//   xPercent: 0,
+// }, {
+//   // xPercent: -activites3_photos.scrollWidth,
+//     xPercent: -10,
+
+//   // duration: 10,
+//   // ease: "elastic",
+//   scrollTrigger: {
+//             trigger: ".galerie3_photos",
+//             start: "top bottom",
+//             markers: true,
+//             end: "top top",
+//             toggleActions: "play resume none none ",
+//     scrub: true,
+//         }
+// });
+
+
+
+
+
+
+let galerie_conteneur = ".galerie_conteneur";
+
+
+let mapWidth = gsap.utils.mapRange(0, document.body.clientWidth, 100, -100)
+let mapHeight = gsap.utils.mapRange(0, document.body.clientHeight, 100, -100)
+
+
+window.addEventListener("mousemove", (e) => {
+  
+
+  
+  gsap.to(galerie_conteneur, {
+    duration: 3,
+    overwrite: "auto",
+    x: mapWidth(e.clientX),
+    y: mapHeight(e.clientY),
+    stagger: 0.1,
+    ease: "power4.out",
   });
 
-gsap.fromTo(".galerie2_photos", {
-  xPercent: -10,
-}, {
-  xPercent: 0,
-  // duration: 10,
-  // ease: "elastic",
-  scrollTrigger: {
-            trigger: ".galerie2_photos",
-            start: "top bottom",
-            markers: true,
-            end: "top top",
-            toggleActions: "play resume none none ",
-    scrub: true,
-        }
+
+  // activites.forEach((element) => {
+  //   gsap.to(element, {
+  //     duration: 1,
+  //     scale: 2,
+  //     ease: "power2.out",
+  //     scrollTrigger: {
+  //         trigger: element,
+  //         start: "top bottom-=100",
+  //         end: "bottom top+=100",
+  //         toggleActions: "play resume reverse none"
+  //     }
+  // });
+
+  // }
+
+
+
+  // gsap.from(".galerie_image1", {
+  //   opacity: 0,
+  //   x: 400,
+  //   duration: 2,
+  //   ease: "power2"
+  // });
 });
 
 
-gsap.fromTo(".galerie3_photos", {
-  xPercent: 0,
-}, {
-  // xPercent: -activites3_photos.scrollWidth,
-    xPercent: -10,
+// galerie_conteneur.addEventListener("mouseover", function(){
+//   gsap.to(".galerie_image1", {
+// scale: 0,
+//     duration: 2,
+//     ease: "power2"
+//   });
+// });
 
-  // duration: 10,
-  // ease: "elastic",
-  scrollTrigger: {
-            trigger: ".galerie3_photos",
-            start: "top bottom",
-            markers: true,
-            end: "top top",
-            toggleActions: "play resume none none ",
-    scrub: true,
-        }
+
+
+
+document.querySelectorAll(".galerie_image").forEach(function(element) {
+  var animation = gsap.timeline({ paused: true });
+  animation.to(element, {scale: 1.5, duration: .5, ease: "power1.inOut"});
+  element.addEventListener("mouseenter", function () {animation.play();});
+  element.addEventListener("mouseleave", function () {animation.reverse();});
 });
-
-
-
-
-
-
-
-
-
-
-

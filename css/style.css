@@ -226,8 +226,9 @@ a {
 } */
 
 .equipe_div {
+	width: 100vw;	
 	height: 100vh;
-	width: 100vw;
+
 	/* display: flex;
 	align-items: center;
 	justify-content: flex-start; */
@@ -350,7 +351,7 @@ a {
 
 .objectifs_div {
 	width: 100vw;
-	height: 100vh;
+	height: auto;
 	background: rgb(243, 243, 243);
 }
 
@@ -509,8 +510,10 @@ a {
 
 .activites_div {
 	width: 100vw;
-	height: 100vh;
+	height: auto;
+	padding-bottom: 2%;
 	background-color: rgb(199, 156, 245);
+	
 	/* box-sizing: border-box; */
 }
 
@@ -525,47 +528,79 @@ a {
 	padding: 5vw;
 }
 
-.activites_photos,
-.activites2_photos,
-.activites3_photos {
+
+.row {
+	width: 90vw;
+margin: auto;
 	display: flex;
-	align-items: center;
-	justify-content: center;
-	/* position: relative; */
-	margin: 0;
-	padding: 0;
-}
+	flex-wrap: wrap;
+	/* padding: 0 4px; */
+	justify-content: space-evenly;
+	
+  }
+  
+  /* Create four equal columns that sits next to each other */
+  .column {
+	flex: 20%;
+	max-width: 24%;
+	
+	/* padding: 0 4px; */
+  }
 
-/* .activite_carte{
-	background-size: cover;
-	height: 60vh;
-	width: 40vw;
-} */
-
-.activite_carte {
-	position: relative;
-	margin: 0;
-	padding: 0;
+  .activite_carte{
+	max-width: 100%;
+	text-align: center;
+	align-content: center;
 }
+  
+  .column img {
+	/* margin-top: 8px; */
+	vertical-align: middle;
+	width: 100%;
+	/* padding: 1%; */
+  }
 
-.activite_carte img {
-	height: 40vh;
-	width: auto;
-}
+  
 
 .activite_description {
-	position: absolute;
+	/* position: absolute;
 	top: 80%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	text-align: center;
+	text-align: center; */
+	/* position: absolute;
+	left: 50%;
+
+	transform: translate(-50%, -50%); */
+
 	/* margin: auto;
 	text-align: center; */
-	font-size: 1.4rem;
+	font-size: 1.2rem;
 	color: rgb(241, 241, 241);
 	font-family: "Raleway", sans-serif;
-}
+	/* padding-top: 2%;
+	padding-bottom: 4%; */
+	position: relative;
+	/* bottom: 50%; */
+	transform: translate(0, -5vh);
 
+}
+  
+  /* Responsive layout - makes a two column-layout instead of four columns */
+  @media screen and (max-width: 800px) {
+	.column {
+	  flex: 50%;
+	  max-width: 50%;
+	}
+  }
+  
+  /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+	.column {
+	  flex: 100%;
+	  max-width: 100%;
+	}
+  }
 
 
 
@@ -582,7 +617,7 @@ a {
 
 .lifestyle_div {
 	width: 100vw;
-	height: 100vh;
+	height: auto;
 	background-color: rgb(245, 212, 156);
 }
 
@@ -590,11 +625,16 @@ a {
 
 .galerie_div {
 	width: 100vw;
-	height: 160vh;
+	height: 100vh;
+	/* padding: 2%; */
 	background-color: rgb(156, 245, 229);
+	overflow: hidden;
+	/* display: flex; */
+	/* justify-content: center; */
 }
 
 .galerie_titre {
+	/* display: block; */
 	text-align: left;
 	padding: 0;
 	margin: 0;
@@ -602,19 +642,93 @@ a {
 	font-size: 3rem;
 	color: rgb(124, 124, 124);
 	/* margin-bottom: 2%; */
-	padding: 5vw;
+	padding: 4vw;
+	padding-bottom: 0;
 }
 
+
+
+
+	
+::-webkit-scrollbar {
+	display: none;
+  }
+  
+  
+  .galerie_conteneur {
+margin: auto;
+	width: 90vw;
+	height: 70vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: none;
+	/* border:1px solid grey; */
+	margin-top: 2%;
+	position: relative;
+	/* overflow: hidden; */
+  }
+  
+   .galerie_image {
+	position: absolute;
+  
+	width: 10vw;
+	height: auto;
+  }
+  
+  .galerie_image1 {
+	top: 20%;
+	left:20%;
+  }
+  
+  .galerie_image2 {
+	top: 40%;
+	left:40%;
+  }
+  
+  .galerie_image3 {
+	top: 60%;
+	left:60%;
+  }
+  
+  .galerie_image4 {
+	top: 50%;
+	left:80%;
+  }
+  
+  .galerie_image5 {
+	top: 12%;
+	left:40%;
+  }
+  
+  .galerie_image6 {
+	top: 11%;
+	left:11%;
+  }
+  
+  .galerie_image7 {
+	top: 13%;
+	left:94%;
+  }
+  
+  .galerie_image8 {
+	top: 25%;
+	left:2%;
+  }
+  
+  
+
+
+/* 
 .galerie_photos,
 .galerie2_photos,
 .galerie3_photos {
 	display: flex;
 	align-items: center;
 	justify-content: left;
-	/* position: relative; */
 	margin: 0;
 	padding: 0;
-}
+} */
 
 /* .activite_carte{
 	background-size: cover;
@@ -622,7 +736,7 @@ a {
 	width: 40vw;
 } */
 
-.galerie_carte {
+/* .galerie_carte {
 	position: relative;
 	margin: 0;
 	padding: 0;
@@ -639,12 +753,11 @@ a {
 	left: 50%;
 	transform: translate(-50%, -50%);
 	text-align: center;
-	/* margin: auto;
-	text-align: center; */
+
 	font-size: 1.4rem;
 	color: rgb(241, 241, 241);
 	font-family: "Raleway", sans-serif;
-}
+} */
 
 
 
@@ -773,3 +886,12 @@ top: 75vh;
 		flex-wrap: wrap;
 	}
 	} */
+
+
+
+
+
+
+
+
+
