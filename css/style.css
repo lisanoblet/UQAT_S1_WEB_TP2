@@ -1111,13 +1111,20 @@ a {
 
 
 /* 2ème breakpoint */
-/* 
+
 @media only screen and (max-width: 600px) {
 	
 	
+	.section_cartes {
+		
+		width: 80%;
+		height: 62%;
+	}
+	
+	
 
 
-
+/* 
 	.equipe_div{
 	
 	}
@@ -1141,8 +1148,8 @@ a {
 		height: 20vh;
 		width: auto;
 		flex-wrap: wrap;
-	}
 	} */
+	}
 
 
 

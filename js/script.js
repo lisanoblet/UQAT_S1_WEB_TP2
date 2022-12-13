@@ -1,4 +1,5 @@
 /* Javascript */
+
 gsap.registerPlugin(ScrollTrigger);
 
 //lecture de la video
