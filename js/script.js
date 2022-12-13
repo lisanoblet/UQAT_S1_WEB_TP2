@@ -1,6 +1,8 @@
 /* Javascript */
 
 gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(DrawSVGPlugin);
+
 
 //lecture de la video
 // document.querySelector('.video_intro').playbackRate = .75;
@@ -27,10 +29,13 @@ gsap.registerPlugin(ScrollTrigger);
 // }
 
 
+let navigation = document.querySelector(".navigation");
 
 let autres_titres = document.querySelector(".autres_titres");
 
 let menu_hamburger = document.querySelector(".hamburger");
+let logo = document.querySelector(".titre");
+
 
 menu_hamburger.addEventListener("click", mobileMenu);
 
@@ -38,11 +43,22 @@ function mobileMenu() {
   if (autres_titres.classList.contains("autres_titres_mobile")) {
     autres_titres.classList.remove("autres_titres_mobile");
     menu_hamburger.style.opacity = "1";
+    navigation.classList.remove("navigation_ouvert");
+    logo.style.display = "block";
+    menu_hamburger.classList.remove("hamburger_ouvert");
+
 
 
   } else {
+    navigation.classList.add("navigation_ouvert");
+
     autres_titres.classList.add("autres_titres_mobile");
-    menu_hamburger.style.opacity = "0.5";
+
+    menu_hamburger.classList.add("hamburger_ouvert");
+    logo.style.display = "none";
+
+
+
 
   }
 
@@ -147,10 +163,48 @@ equipe_div.forEach(section => {
 
 });
 
+// objectifs
+
+// gsap.to("Calque_1", {duration: 1, drawSVG: "20% 80%"});
+
+var timeline_map = gsap.timeline({
+  repeat: 1,
+});
+
+// timeline_map.to(".trajet", {
+//   drawSVG: "100%",
+//   stagger: 0.1,
+
+//   scrollTrigger: {
+//     trigger: ".svg_map_container",
+//     start: "center center",
+//     scrub: true,
+//     pin: true
+//   }
+// });
+
+let trajet = document.querySelector(".trajet");
+timeline_map.from(trajet,{
+  scrollTrigger: {
+    trigger: trajet,
+    start: 'top 60%',
+  //  end:'top trajet.scrollWidth',
+  end: "+=2000",
+  // start: () => "top center",
+  // end: () => "+=" + trajet.scrollWidth,
+    scrub: 1, markers: true,
+    pin: '.objectifs_div',
+    anticipatePin: true,
+  },
+  ease: "none",
+  drawSVG:"0 0"
+});
 
 
-
-
+// .fromTo(shapes, {drawSVG:"0%"}, {duration: 10, drawSVG:"10%", immediateRender:false}, "+=0.1")
+// .to(shapes, {duration: 1, drawSVG:"90% 100%", stagger: 0.5})
+// .to(shapes, {duration: 1, rotation:360, scale:0.5, drawSVG:"100%", stroke:"white", strokeWidth:6, transformOrigin:"50% 50%"})
+// .to(shapes, {duration: 0.5, stroke:"red", scale:1.5, opacity:0, stagger: 0.2})
 
 
 // section activités 
@@ -520,20 +574,34 @@ avis_perso.forEach((element) => {
 
 
 let stars = gsap.timeline();
-stars.to("#star1", {opacity:0.8}),
-stars.to("#star2", {opacity:0.8, delay: 0.01}),
-stars.to("#star3", {opacity:0.8, delay: 0.01}),
-stars.to("#star4", {opacity:0.8, delay: 0.01}),
-stars.to("#star5", {opacity:0.8, delay: 0.01}),
+stars.to("#star1", {
+    opacity: 0.8
+  }),
+  stars.to("#star2", {
+    opacity: 0.8,
+    delay: 0.01
+  }),
+  stars.to("#star3", {
+    opacity: 0.8,
+    delay: 0.01
+  }),
+  stars.to("#star4", {
+    opacity: 0.8,
+    delay: 0.01
+  }),
+  stars.to("#star5", {
+    opacity: 0.8,
+    delay: 0.01
+  }),
 
-    ScrollTrigger.create({
-        animation: stars,
-        trigger: ".avis_starf",
-        markers: true,
-        start: "center 90%",
-        scrub: true,
-        end: "center 50%",
-        toggleActions: "play resume none reverse",
-        //scrub:true,
-        //pin:true,
-      });
+  ScrollTrigger.create({
+    animation: stars,
+    trigger: ".avis_starf",
+    markers: true,
+    start: "center 90%",
+    scrub: true,
+    end: "center 50%",
+    toggleActions: "play resume none reverse",
+    //scrub:true,
+    //pin:true,
+  });

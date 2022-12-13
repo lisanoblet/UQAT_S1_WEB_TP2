@@ -79,21 +79,6 @@ hr.solid {
 
 
 
-/* NAVBAR MOBILE */
-
-.hamburger {
-	display: none;
-}
-
-.bar {
-	display: block;
-	width: 25px;
-	height: 3px;
-	margin: 5px auto;
-	-webkit-transition: all 0.3s ease-in-out;
-	transition: all 0.3s ease-in-out;
-	background-color: #101010;
-}
 
 
 
@@ -162,6 +147,42 @@ a {
 	background-color: rgb(193, 193, 193);
 
 }
+
+
+
+/* NAVBAR MOBILE */
+
+.hamburger {
+	display: none;
+}
+
+.bar {
+	display: block;
+	width: 25px;
+	height: 3px;
+	margin: 5px auto;
+	-webkit-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+	/* background-color: #101010; */
+}
+
+
+/* NAVBAR MOBILE */
+/* 
+.navigation_mobile{
+	display: none;
+}
+
+.navigation{
+	display: block;
+}
+
+
+ */
+
+
+
+
 
 
 
@@ -311,7 +332,7 @@ a {
 }
 
 .carte1 {
-	background-image: url("../medias/equipe/Laura.JPG");
+	background-image: url("../medias/equipe/Laura.jpg");
 }
 
 .carte2 {
@@ -331,7 +352,7 @@ a {
 }
 
 .carte6 {
-	background-image: url("../medias/equipe/Val.JPG");
+	background-image: url("../medias/equipe/Val.jpg");
 }
 
 .carte7 {
@@ -339,7 +360,7 @@ a {
 }
 
 .carte8 {
-	background-image: url("../medias/equipe/Louise.JPG");
+	background-image: url("../medias/equipe/Louise.jpg");
 }
 
 .carte9 {
@@ -362,8 +383,9 @@ a {
 
 .objectifs_div {
 	width: 100vw;
-	height: auto;
+	height: 100vh;
 	background: rgb(243, 243, 243);
+	position: relative;
 }
 
 .objectifs_titre {
@@ -379,6 +401,30 @@ a {
 	top: 15vh; */
 	color: rgb(124, 124, 124);
 }
+
+
+
+
+.svg_map_container{
+	width: 50vw;
+	height: auto;
+	margin: auto;
+	/* background-color:aqua; */
+	position: absolute;
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* parametres communs aux 3 villes */
 /* 
@@ -975,24 +1021,30 @@ a {
 
 
 
+
 /* 1er breakpoint */
 @media only screen and (max-width: 768px) {
 	.navigation {
-		top: 1%;
-		left: 2%;
-		width: 90vw;
+		/* top: 1%;
+		left: 2%; */
+		width: 100vw;
 
 	}
 
 	.titre {
 		width: 70vw;
+		
 
 	}
 
 	.hamburger {
 		display: block;
 		cursor: pointer;
+		position: absolute;
+		top: 5vh;
+		right: 5vw;
 	}
+
 
 	.autres_titres {
 		display: none;
@@ -1002,16 +1054,39 @@ a {
 		text-align: right;
 	}
 
+	.navigation_ouvert{
+		width: 100vw;
+		height: 100vh;
+		background-color: darkslateblue;
+		margin: 0;
+		padding: 0;
+		position: absolute;
+		top: 0;
+		left: 0;
+		position: fixed;
+		
+	}
+	
 	.autres_titres_mobile {
 		display: flex;
 		flex-direction: column;
-		width: 100vw;
-		height: 100vh;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		height: 100%;
+		/* z-index: 100; */
+		color: black;
+		
 		/* top: 5vh;
 		right: 5vw; */
 		/* transition: 0.5s; */
 	}
 
+	.hamburger_ouvert {
+		position: absolute;
+		top: 5%;
+		right: 5%;
+	}
 
 	.h1_introduction {
 		/* padding-top: 15%!important; */
