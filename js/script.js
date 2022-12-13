@@ -2,7 +2,7 @@
 gsap.registerPlugin(ScrollTrigger);
 
 //lecture de la video
-// document.querySelector('.video_intro').playbackRate = .5;
+// document.querySelector('.video_intro').playbackRate = .75;
 
 
 // const hamburger = document.querySelector(".hamburger");
@@ -34,23 +34,22 @@ let menu_hamburger = document.querySelector(".hamburger");
 menu_hamburger.addEventListener("click", mobileMenu);
 
 function mobileMenu() {
-if(autres_titres.classList.contains("autres_titres_mobile")){
-  autres_titres.classList.remove("autres_titres_mobile");
-  menu_hamburger.style.opacity = "1"; 
+  if (autres_titres.classList.contains("autres_titres_mobile")) {
+    autres_titres.classList.remove("autres_titres_mobile");
+    menu_hamburger.style.opacity = "1";
 
 
-}
-else {
-  autres_titres.classList.add("autres_titres_mobile");  
-  menu_hamburger.style.opacity = "0.5"; 
-  
-}
+  } else {
+    autres_titres.classList.add("autres_titres_mobile");
+    menu_hamburger.style.opacity = "0.5";
+
+  }
 
 
-// document.addEventListener("click", function(){
-//   autres_titres.classList.remove("autres_titres_mobile");
+  // document.addEventListener("click", function(){
+  //   autres_titres.classList.remove("autres_titres_mobile");
 
-// });
+  // });
 
 }
 
@@ -73,6 +72,8 @@ gsap.from(".h1_introduction", {
   duration: 2,
   ease: "power2"
 });
+
+
 
 gsap.from(".h2_introduction", {
   opacity: 0,
@@ -103,8 +104,8 @@ gsap.from(".roadtrip_description", {
 let equipe_div = document.querySelectorAll(".equipe_div");
 
 equipe_div.forEach(section => {
-  
-//gsap.utils.toArray(".equipe_div").forEach((section) => {
+
+  //gsap.utils.toArray(".equipe_div").forEach((section) => {
 
   if (section.classList.contains('horizontal')) {
 
@@ -115,7 +116,7 @@ equipe_div.forEach(section => {
       //x: () => { return -(cartesWrap.scrollWidth - window.innerWidth + window.innerWidth*0.05) },
       //x: () => {return - ((cartesWrap.scrollWidth - window.innerWidth + window.innerWidth*0.05) + (window.innerWidth/2 - onecarte.offsetWidth/2))},
       x: () => {
-        return - ((conteneur_cartes.scrollWidth - window.innerWidth + window.innerWidth*0.05) + (window.innerWidth/2 - personne_carte.offsetWidth/2))
+        return -((conteneur_cartes.scrollWidth - window.innerWidth + window.innerWidth * 0.05) + (window.innerWidth / 2 - personne_carte.offsetWidth / 2))
         // return -conteneur_cartes.scrollWidth + personne_carte.offsetWidth * 4.5
       },
       ease: "none",
@@ -174,38 +175,68 @@ equipe_div.forEach(section => {
 let activites = document.querySelectorAll(".activite_carte");
 
 activites.forEach((element) => {
-	let photo = element.querySelectorAll(".activite_photo");
-  let description = element.querySelectorAll(".activite_description") 
+  let photo = element.querySelectorAll(".activite_photo");
+  let description = element.querySelectorAll(".activite_description");
+  let sous_description = element.querySelectorAll(".activite_sous_description");
 
-    gsap.set(photo, { scale:0 });
-  
-    gsap.to(photo, {
-        duration: 1.2,
-        autoAlpha:1,
-        scale: 1,
-        ease: "power2.out",
-        scrollTrigger: {
-            trigger: photo,
-            start: "top bottom-=100",
-            end: "bottom top+=100",
-            toggleActions: "play resume reverse none"
-        }
-    });
 
-    gsap.set(description, { scale:0 });
-  
-    gsap.to(description, {
-        duration: 1,
-        autoAlpha:1,
-        scale: 1,
-        ease: "power2.out",
-        scrollTrigger: {
-            trigger: photo,
-            start: "top bottom-=100",
-            end: "bottom top+=100",
-            toggleActions: "play resume reverse none"
-        }
-    });
+  gsap.set(photo, {
+    scale: 0
+  });
+
+  gsap.to(photo, {
+    duration: 1.2,
+    autoAlpha: 1,
+    scale: 1,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: photo,
+      start: "top-=100 bottom",
+      end: "bottom top+=100",
+      toggleActions: "play resume none reverse"
+    }
+  });
+
+  gsap.set(description, {
+    scale: 0,
+    opacity: 0,
+
+  });
+
+  gsap.to(description, {
+    duration: 1.5,
+    autoAlpha: 1,
+    scale: 1,
+    opacity: 1,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: photo,
+      start: "top bottom-=100",
+      end: "bottom top+=100",
+      toggleActions: "play resume none reverse"
+    }
+  });
+
+  gsap.set(sous_description, {
+    scale: 0,
+    opacity: 0,
+
+  });
+
+  gsap.to(sous_description, {
+    duration: 1.5,
+    autoAlpha: 1,
+    scale: 1,
+    opacity: 1,
+    delay: .4,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: photo,
+      start: "top bottom-=100",
+      end: "bottom top+=100",
+      toggleActions: "play resume none reverse"
+    }
+  });
 })
 
 
@@ -229,7 +260,7 @@ let galerie_div = document.querySelector('.galerie_div');
 //   }, {
 //     // xPercent: -activites3_photos.scrollWidth,
 //       xPercent: -12,
-  
+
 //     // duration: 10,
 //     // ease: "elastic",
 //     scrollTrigger: {
@@ -286,18 +317,17 @@ let galerie_conteneur = ".galerie_conteneur";
 
 
 let mapWidth = gsap.utils.mapRange(0, document.body.clientWidth, 100, -100)
-let mapHeight = gsap.utils.mapRange(0, document.body.clientHeight, 100, -100)
+let mapHeight = gsap.utils.mapRange(0, document.body.clientHeight, 50, -50)
 
+//animation galerie et mouvement de souris 
 
 window.addEventListener("mousemove", (e) => {
-  
 
-  
   gsap.to(galerie_conteneur, {
     duration: 3,
     overwrite: "auto",
-    x: mapWidth(e.clientX),
-    y: mapHeight(e.clientY),
+    x: mapWidth(e.clientX) * 1.1,
+    y: mapHeight(e.clientY) * 2,
     stagger: 0.1,
     ease: "power4.out",
   });
@@ -338,11 +368,171 @@ window.addEventListener("mousemove", (e) => {
 // });
 
 
+//animation sur le hover de la galerie
 
+document.querySelectorAll(".galerie_image").forEach(function (element) {
 
-document.querySelectorAll(".galerie_image").forEach(function(element) {
-  var animation = gsap.timeline({ paused: true });
-  animation.to(element, {scale: 1.5, duration: .5, ease: "power1.inOut"});
-  element.addEventListener("mouseenter", function () {animation.play();});
-  element.addEventListener("mouseleave", function () {animation.reverse();});
+  let animation = gsap.timeline({
+    paused: true
+  });
+
+  animation.to(element, {
+    scale: 1.2,
+    duration: .5,
+    ease: "power1.inOut"
+  });
+
+  element.addEventListener("mouseenter", function () {
+    animation.play();
+  });
+
+  element.addEventListener("mouseleave", function () {
+    animation.reverse();
+  });
 });
+
+
+
+
+// let galerie_test = document.querySelectorAll(".galerie_image");
+
+// galerie_test.forEach((element) => {
+//   let galerie_image = element.querySelectorAll(".galerie_image");
+//   let description = element.querySelectorAll(".activite_description")
+
+//   gsap.set(galerie_image, {
+//     scale: 0
+//   });
+
+//   gsap.to(galerie_image, {
+//     duration: 1.2,
+//     autoAlpha: 1,
+//     scale: 1,
+//     ease: "power2.out",
+//     scrollTrigger: {
+//       trigger: galerie_image,
+//       start: "top bottom-=100",
+//       end: "bottom top+=100",
+//       toggleActions: "play resume none reverse"
+//     }
+//   });
+
+
+// })
+
+
+
+
+
+
+
+
+
+
+let avis_perso = document.querySelectorAll(".avis_column");
+// let avis_stars = document.querySelectorAll(".avis_starf");
+
+
+avis_perso.forEach((element) => {
+  let avis_stars = element.querySelectorAll(".avis_starf");
+  let avis_nom_ville = element.querySelectorAll(".avis_nom_ville");
+  let avis_ville = element.querySelectorAll(".avis_ville");
+
+
+  gsap.set(avis_nom_ville, {
+    opacity: 0,
+    // scale: 0,
+  });
+
+  gsap.to(avis_nom_ville, {
+    duration: 2,
+    // autoAlpha: 1,
+    opacity: 1,
+    // scale: 1,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: avis_nom_ville,
+      // start: "top center",
+      // end: "center center",
+      scrub: true,
+      toggleActions: "play resume none none"
+    }
+  });
+
+  gsap.set(avis_ville, {
+    opacity: 0,
+    // scale: 0,
+  });
+
+  gsap.to(avis_ville, {
+    duration: 2,
+    // autoAlpha: 1,
+    opacity: 1,
+    // scale: 1,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: avis_ville,
+      // start: "top center",
+      // end: "center center",
+      scrub: true,
+      toggleActions: "play resume none none"
+    }
+  });
+
+
+  // gsap.set(avis_stars, {
+  //   opacity: 0,
+  //   scale: 0,
+  // });
+
+  // gsap.to(avis_stars, {
+  //   duration: 2,
+  //   // autoAlpha: 1,
+  //   opacity: 1,
+  //   scale: 1,
+  //   ease: "power2.out",
+  //   scrollTrigger: {
+  //     trigger: avis_stars,
+  //     start: "top bottom",
+  //     end: "top 85%",
+  //     scrub: true,
+  //     toggleActions: "play resume none none"
+  //   }
+  // })
+});
+
+
+
+// let tween = gsap.from(".avis_starf", {
+//   opacity: 0,
+// }),
+//     st = ScrollTrigger.create({
+//         trigger: ".avis_starf",
+//         start: "top +=500",
+//         animation: tween,
+//               toggleActions: "play resume reverse none"
+
+//       });
+
+// console.log(st.animation);
+
+
+
+let stars = gsap.timeline();
+stars.to("#star1", {opacity:0.8}),
+stars.to("#star2", {opacity:0.8, delay: 0.01}),
+stars.to("#star3", {opacity:0.8, delay: 0.01}),
+stars.to("#star4", {opacity:0.8, delay: 0.01}),
+stars.to("#star5", {opacity:0.8, delay: 0.01}),
+
+    ScrollTrigger.create({
+        animation: stars,
+        trigger: ".avis_starf",
+        markers: true,
+        start: "center 90%",
+        scrub: true,
+        end: "center 50%",
+        toggleActions: "play resume none reverse",
+        //scrub:true,
+        //pin:true,
+      });

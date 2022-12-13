@@ -11,12 +11,17 @@
 /* Général  */
 
 body {
-	background-color: #fff;
-
+	background-color: rgb(255, 255, 255);
 	height: auto;
 	width: 100%;
-	overflow-x: hidden!important;
+	overflow-x: hidden !important;
 	/* display: inline-block; */
+}
+
+/* je veux que le site se finisse sur la galerie avec le mouvement de la souris, le footer est donc caché */
+.footer{
+	text-align: center;
+	display: none;
 }
 
 h1 {
@@ -77,17 +82,17 @@ hr.solid {
 /* NAVBAR MOBILE */
 
 .hamburger {
-    display: none;
+	display: none;
 }
 
 .bar {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px auto;
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-    background-color: #101010;
+	display: block;
+	width: 25px;
+	height: 3px;
+	margin: 5px auto;
+	-webkit-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+	background-color: #101010;
 }
 
 
@@ -117,7 +122,9 @@ hr.solid {
 	font-weight: 600;
 	width: 40%;
 	font-family: 'Playfair Display', serif;
+
 }
+
 
 a {
 	text-decoration: none;
@@ -146,12 +153,12 @@ a {
 
 /* navbar mobile */
 
-.hamburger{
+.hamburger {
 	display: none;
 
 }
 
-.bar{
+.bar {
 	background-color: rgb(193, 193, 193);
 
 }
@@ -215,6 +222,7 @@ a {
 	position: absolute;
 	left: 3vw;
 	top: 90vh;
+	text-align: center;
 }
 
 /* DIVISION equipe */
@@ -226,7 +234,7 @@ a {
 } */
 
 .equipe_div {
-	width: 100vw;	
+	width: 100vw;
 	height: 100vh;
 
 	/* display: flex;
@@ -282,9 +290,12 @@ a {
 }
 
 .description_personne {
+	text-align: right;
+	/* width: 40%; */
 	padding-right: 4%;
 	padding-bottom: 5%;
 	/* color: rgb(222, 222, 222); */
+	mix-blend-mode: hard-light;
 }
 
 .description_equipe {
@@ -312,7 +323,7 @@ a {
 }
 
 .carte4 {
-	background-image: url("../medias/equipe/Lisa.png");
+	background-image: url("../medias/equipe/Lisa.jpg");
 }
 
 .carte5 {
@@ -336,7 +347,7 @@ a {
 }
 
 .carte10 {
-	background-image: url("../medias/equipe/Clara.png");
+	background-image: url("../medias/equipe/Clara.jpg");
 }
 
 .carte11 {
@@ -356,9 +367,10 @@ a {
 }
 
 .objectifs_titre {
-	text-align: right;
-	padding: 0;
+	text-align: left;
+	padding: 5vw;
 	margin: 0;
+
 	padding-top: 6%;
 	padding-right: 4%;
 	font-size: 3rem;
@@ -512,8 +524,8 @@ a {
 	width: 100vw;
 	height: auto;
 	padding-bottom: 2%;
-	background-color: rgb(199, 156, 245);
-	
+	background-color: rgb(255, 255, 255);
+
 	/* box-sizing: border-box; */
 }
 
@@ -531,76 +543,84 @@ a {
 
 .row {
 	width: 90vw;
-margin: auto;
+	margin: auto;
 	display: flex;
 	flex-wrap: wrap;
 	/* padding: 0 4px; */
 	justify-content: space-evenly;
-	
-  }
-  
-  /* Create four equal columns that sits next to each other */
-  .column {
+
+}
+
+/* Create four equal columns that sits next to each other */
+.column {
 	flex: 20%;
 	max-width: 24%;
-	
-	/* padding: 0 4px; */
-  }
 
-  .activite_carte{
-	max-width: 100%;
-	text-align: center;
-	align-content: center;
+	/* padding: 0 4px; */
 }
-  
-  .column img {
-	/* margin-top: 8px; */
+
+.activite_carte {
+	width: 100%;
+	/* padding: 2%;
+	padding-bottom: 8%;
+	position: relative; */
+	/* text-align: center; */
+	/* 
+	background-size: contain;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 0; */
+	position: relative;
+	margin-bottom: 4%;
+}
+
+.column img {
 	vertical-align: middle;
 	width: 100%;
-	/* padding: 1%; */
-  }
+	height: auto;
+}
 
-  
-
-.activite_description {
-	/* position: absolute;
-	top: 80%;
+.activites_textes {
+	width: 80%;
+	position: absolute;
+	top: 90%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	text-align: center; */
-	/* position: absolute;
-	left: 50%;
-
-	transform: translate(-50%, -50%); */
-
-	/* margin: auto;
-	text-align: center; */
-	font-size: 1.2rem;
-	color: rgb(241, 241, 241);
-	font-family: "Raleway", sans-serif;
-	/* padding-top: 2%;
-	padding-bottom: 4%; */
-	position: relative;
-	/* bottom: 50%; */
-	transform: translate(0, -5vh);
+	text-align: center;
+	color: white;
 
 }
-  
-  /* Responsive layout - makes a two column-layout instead of four columns */
-  @media screen and (max-width: 800px) {
-	.column {
-	  flex: 50%;
-	  max-width: 50%;
-	}
-  }
-  
-  /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-  @media screen and (max-width: 600px) {
-	.column {
-	  flex: 100%;
-	  max-width: 100%;
-	}
-  }
+
+.activite_description {
+	font-size: 1rem;
+	font-family: 'Raleway', sans-serif;
+
+}
+
+.activite_sous_description {
+	font-weight: 100;
+	font-size: 0.8rem;
+	font-family: 'Raleway', sans-serif;
+
+}
+
+
+
+/* .activite1 {
+	background-image: url("../medias/activites/activites_ottawa.jpg");
+	padding-top: 125%;
+
+}
+
+.activite2 {
+	background-image: url("../medias/activites/activites_montreal.jpg");
+	padding-top: 71%;
+}
+.activite3 {
+	background-image: url("../medias/activites/activites_queb_jour.jpg");
+
+	padding-top: 125%;
+} */
 
 
 
@@ -609,17 +629,108 @@ margin: auto;
 
 
 
+/* DIVISION AVIS */
 
-
-
-
-/* DIVISION LIFESTYLE */
-
-.lifestyle_div {
+.avis_div {
 	width: 100vw;
 	height: auto;
-	background-color: rgb(245, 212, 156);
+	background: rgb(243, 243, 243);
+	padding: 5%;
+
 }
+
+
+.avis_row {
+	width: auto;
+	margin: auto;
+	display: flex;
+	flex-wrap: wrap;
+	/* padding: 0 4px; */
+	justify-content: space-evenly;
+	padding-right: 5%;
+}
+
+.avis_column {
+	flex: 30%;
+	max-width: 90%;
+	padding-right: 2%;
+}
+
+
+.avis_titre {
+	text-align: left;
+	padding: 0;
+	margin: 0;
+	padding-top: 2%;
+	font-size: 3rem;
+	color: rgb(124, 124, 124);
+	/* margin-bottom: 2%; */
+	/* padding: 5vw; */
+}
+
+.description_avis {
+	padding: 2%;
+	display: block;
+	width: 100%;
+	color: rgb(41, 41, 41);
+	/* padding-bottom: 8%; */
+	/* padding-top: 4%; */
+
+}
+
+.avis_nom_ville {
+	text-align: left;
+	padding: 0;
+	margin: 0;
+	font-size: 1.2rem;
+	color: rgb(104, 104, 104);
+	padding-top: 4%;
+	/* padding-bottom: .4%; */
+
+	/* margin-bottom: 2%; */
+}
+
+.avis_ville {
+	/* text-align: justify; */
+
+	display: block;
+	width: 90%;
+	color: rgb(41, 41, 41);
+
+	margin-bottom: 8%;
+	/* padding-top: 4%; */
+
+}
+
+
+.avis_div_stars {
+	display: flex;
+	/* padding: 0 4px; */
+	width: auto;
+	flex-direction: row;
+	justify-content: left;
+	padding-bottom: 2%;
+
+}
+
+.avis_starf {
+	font-size: 1.5rem;
+	opacity: 0;
+	padding: 4%;
+	padding-left: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* DIVISION galerie */
 
@@ -627,7 +738,6 @@ margin: auto;
 	width: 100vw;
 	height: 100vh;
 	/* padding: 2%; */
-	background-color: rgb(156, 245, 229);
 	overflow: hidden;
 	/* display: flex; */
 	/* justify-content: center; */
@@ -639,6 +749,7 @@ margin: auto;
 	padding: 0;
 	margin: 0;
 	padding-top: 2%;
+	margin-top: 1%;
 	font-size: 3rem;
 	color: rgb(124, 124, 124);
 	/* margin-bottom: 2%; */
@@ -649,16 +760,16 @@ margin: auto;
 
 
 
-	
+
 ::-webkit-scrollbar {
 	display: none;
-  }
-  
-  
-  .galerie_conteneur {
-margin: auto;
+}
+
+
+.galerie_conteneur {
+	margin: auto;
 	width: 90vw;
-	height: 70vh;
+	height: 80vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -667,56 +778,156 @@ margin: auto;
 	margin-top: 2%;
 	position: relative;
 	/* overflow: hidden; */
-  }
-  
-   .galerie_image {
+}
+
+.galerie_image {
 	position: absolute;
-  
-	width: 10vw;
+	width: 12%;
 	height: auto;
-  }
-  
-  .galerie_image1 {
-	top: 20%;
-	left:20%;
-  }
-  
-  .galerie_image2 {
+}
+
+.galerie_video {
+	position: absolute;
+	width: 12%;
+	height: auto;
+	top: -15%;
+	left: 15%;
+}
+
+.galerie_image1 {
+	top: -10%;
+	left: 0%;
+}
+
+.galerie_image2 {
 	top: 40%;
-	left:40%;
-  }
-  
-  .galerie_image3 {
-	top: 60%;
-	left:60%;
-  }
-  
-  .galerie_image4 {
-	top: 50%;
-	left:80%;
-  }
-  
-  .galerie_image5 {
+	left: 30%;
+}
+
+.galerie_image3 {
+	top: 10%;
+	left: 60%;
+}
+
+.galerie_image4 {
+	top: 40%;
+	left: 80%;
+}
+
+.galerie_image5 {
 	top: 12%;
-	left:40%;
-  }
-  
-  .galerie_image6 {
-	top: 11%;
-	left:11%;
-  }
-  
-  .galerie_image7 {
-	top: 13%;
-	left:94%;
-  }
-  
-  .galerie_image8 {
+	left: 40%;
+}
+
+.galerie_image6 {
+	top: 0%;
+	left: 25%;
+}
+
+.galerie_image7 {
+	top: -5%;
+	left: 75%;
+}
+
+.galerie_image8 {
+	top: 35%;
+	left: 50%;
+}
+
+.galerie_image9 {
+	top: 15%;
+	left: 13%;
+}
+
+.galerie_image10 {
+	top: 9%;
+	left: 90%;
+}
+
+.galerie_image11 {
 	top: 25%;
-	left:2%;
-  }
-  
-  
+	left: 2%;
+}
+
+
+
+
+.galerie_image12 {
+	top: -20%;
+	left: 50%;
+	width: 10%;
+
+}
+
+.galerie_image13 {
+	top: -20%;
+	left: 40%;
+	width: 8%;
+
+}
+
+.galerie_image14 {
+	top: 0;
+	left: -12%;
+	width: 12%;
+
+}
+
+.galerie_image15 {
+	top: 25%;
+	left: -12%;
+	width: 10%;
+
+}
+
+.galerie_image16 {
+	top: -15%;
+	left: 95%;
+	width: 15%;
+
+}
+
+.galerie_image17 {
+	top: -15%;
+	left: 64%;
+	width: 8%;
+
+}
+
+.galerie_image18 {
+	top: 55%;
+	left: 65%;
+	width: 12%;
+
+}
+
+.galerie_image19 {
+	top: 50%;
+	left: -8%;
+	width: 9%;
+
+}
+
+.galerie_image20 {
+	top: 55%;
+	left: 16%;
+	width: 12%;
+
+}
+
+.galerie_image21 {
+	top: 50%;
+	left: 95%;
+	width: 12%;
+
+}
+
+.galerie_image22 {
+	top: 55%;
+	left: 16%;
+	width: 12%;
+
+}
 
 
 /* 
@@ -766,31 +977,32 @@ margin: auto;
 
 /* 1er breakpoint */
 @media only screen and (max-width: 768px) {
-	.navigation{
+	.navigation {
 		top: 1%;
 		left: 2%;
 		width: 90vw;
-	
+
 	}
-	
-	.navigation .titre{
-	
-		width: 20vw;
-	
+
+	.titre {
+		width: 70vw;
+
 	}
-	.hamburger{
+
+	.hamburger {
 		display: block;
 		cursor: pointer;
 	}
-	
-	.autres_titres{
+
+	.autres_titres {
 		display: none;
-		background-color:rgba(235, 235, 235, 0.422);
-		
+		background-color: rgba(235, 235, 235, 0.422);
+		width: 100vw;
+		height: 100vh;
 		text-align: right;
 	}
-	
-	.autres_titres_mobile{
+
+	.autres_titres_mobile {
 		display: flex;
 		flex-direction: column;
 		width: 100vw;
@@ -801,56 +1013,101 @@ margin: auto;
 	}
 
 
+	.h1_introduction {
+		/* padding-top: 15%!important; */
+		font-size: 5rem;
+	}
+
+	.h2_introduction {
+		/* padding-top: 15%!important; */
+		font-size: 2.5rem;
+		top: 75vh;
+	}
 
 
-.equipe_div{
-
-}
-
-p{
-	font-size: 1.3rem;
-}
-
-.h1_introduction{
-	/* padding-top: 15%!important; */
-	font-size: 5rem;
-}
-.h2_introduction{
-	/* padding-top: 15%!important; */
-	font-size: 2.5rem;
-top: 75vh;
-}
 
 
-.section_cartes {
-	padding: 1%;
-	width: 100%;
-	height: 80%;
-}
+	/* titres de sections */
+	h2,
+	.equipe_titre,
+	.objectifs_div,
+	.activites_div,
+	.avis_div,
+	.galerie_div {
+		padding-top: 6vh;
+		font-size: 2rem;
+	}
 
-.section_carte {
+	p {
+		font-size: 1.3rem;
+	}
+
+	.section_cartes {
+		padding: 1%;
+		width: 60%;
+		height: 70%;
+		padding-top: 5%;
+		padding-bottom: 8%;
+
+	}
+
+	.section_carte {
+
+		width: 100%;
+		height: 100%;
+	}
+
 	
-	width: 100%;
-	height: 100%;
+
+
+	.avis_row {
+
+		flex-direction: column;
+	}
+
+	.avis_ville,
+	.avis_starf {
+		font-size: 1rem;
+
+	}
+
+	.avis_ville {
+		display: block;
+		width: 100%;
+	}
+
+
+	.galerie_div {
+		width: 100vw;
+		height: 160vh;
+
+	}
+
+	.galerie_conteneur {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.galerie_image, .galerie_video {
+		position: initial;
+		height: 20%;
+		width: auto;
+		padding: 2%;
+	}
+
+	
+
+
+
+	/* .galerie_carte img {
+		height: 20vh;
+		width: auto;
+		flex-wrap: wrap;
+		position: relative;
+	} */
+
 }
 
-
-
-.galerie_div {
-	width: 100vw;
-	height: 100vh;
-	background-color: rgb(156, 245, 229);
-}
-
-
-.galerie_carte img {
-	height: 20vh;
-	width: auto;
-	flex-wrap: wrap;
-}
-
-
-}
 
 
 /* 2ème breakpoint */
@@ -889,9 +1146,19 @@ top: 75vh;
 
 
 
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+	.column {
+		flex: 50%;
+		max-width: 47%;
+	}
+}
 
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+	.column {
+		flex: 100%;
+		max-width: 100%;
 
-
-
-
-
+	}
+}
