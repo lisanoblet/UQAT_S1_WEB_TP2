@@ -187,7 +187,7 @@ let trajet = document.querySelector(".trajet");
 timeline_map.from(trajet,{
   scrollTrigger: {
     trigger: trajet,
-    start: 'top 60%',
+    start: 'top 70%',
   //  end:'top trajet.scrollWidth',
   end: "+=2000",
   // start: () => "top center",
