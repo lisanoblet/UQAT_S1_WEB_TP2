@@ -2,6 +2,8 @@
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(DrawSVGPlugin);
+gsap.registerPlugin(SplitText);
+
 
 
 //lecture de la video
@@ -83,12 +85,12 @@ function closeMenu() {
 
 
 
-gsap.from(".h1_introduction", {
-  opacity: 0,
-  x: 400,
-  duration: 2,
-  ease: "power2"
-});
+// gsap.from(".h1_introduction", {
+//   opacity: 0,
+//   x: 400,
+//   duration: 2,
+//   ease: "power2"
+// });
 
 
 
@@ -96,6 +98,13 @@ gsap.from(".h2_introduction", {
   opacity: 0,
   x: 400,
   duration: 2.5,
+  ease: "power2"
+});
+
+
+gsap.from(".video_intro", {
+  opacity: 0,
+  duration: 1,
   ease: "power2"
 });
 
@@ -112,6 +121,38 @@ gsap.from(".roadtrip_description", {
   duration: 2
 });
 
+
+
+
+
+let titre_timeline = gsap.timeline(),
+  mySplitText = new SplitText(".h1_introduction", { type: "chars" }),
+  chars = mySplitText.chars; //an array of all the divs that wrap each character
+
+gsap.set(".h1_introduction", { perspective: 400 });
+
+titre_timeline.from(chars, {
+  duration: 2,
+  opacity: 0,
+  ease: "back",
+  stagger: 0.4, 
+  delay: 0.5,
+});
+
+
+
+// let titre_timeline2 = gsap.timeline(),
+//   mySplitText2 = new SplitText(".h2_introduction", { type: "words, chars" }),
+//   chars2 = mySplitText2.chars; //an array of all the divs that wrap each character
+
+
+// titre_timeline2.from(chars2, {
+//   duration: 10,
+//   opacity: 0,
+//   ease: "back",
+//   stagger: 0.4, 
+//   delay: 1
+// });
 
 
 
@@ -187,7 +228,7 @@ let trajet = document.querySelector(".trajet");
 timeline_map.from(trajet,{
   scrollTrigger: {
     trigger: trajet,
-    start: 'top 70%',
+    start: 'top 60%',
   //  end:'top trajet.scrollWidth',
   end: "+=2000",
   // start: () => "top center",
@@ -198,6 +239,35 @@ timeline_map.from(trajet,{
   },
   ease: "none",
   drawSVG:"0 0"
+});
+
+timeline_map.from(".objectifs_ottawa",{
+  opacity: 0,
+  scrollTrigger: {
+    trigger: ".objectifs_ottawa",
+    start: 'top 0%',
+  //  end:'top trajet.scrollWidth',
+  end: "+=200",
+  // start: () => "top center",
+  // end: () => "+=" + trajet.scrollWidth,
+    scrub: 1, markers: true,
+  },
+  ease: "none",
+});
+
+
+timeline_map.from(".images_dans_svg",{
+  opacity: 0,
+  scrollTrigger: {
+    trigger: ".images_dans_svg",
+    start: 'top 0%',
+  //  end:'top trajet.scrollWidth',
+  end: "+=200",
+  // start: () => "top center",
+  // end: () => "+=" + trajet.scrollWidth,
+    scrub: 1, markers: true,
+  },
+  ease: "none",
 });
 
 
