@@ -5,7 +5,6 @@
 	padding: 0;
 	/* font-family: 'Raleway', sans-serif; */
 	font-family: 'Playfair Display', serif;
-	/* overflow-x: hidden; */
 }
 
 /* Général  */
@@ -15,7 +14,6 @@ body {
 	height: auto;
 	width: 100%;
 	overflow-x: hidden !important;
-	/* display: inline-block; */
 }
 
 /* je veux que le site se finisse sur la galerie avec le mouvement de la souris, le footer est donc très très petit  */
@@ -322,15 +320,6 @@ text{
 	font-family: 'Playfair Display', serif;
 color: #4D4D4D;
 }
-/* 
-.objectifs_ottawa {
-	position: absolute;
-	width: 80%;
-	top: 70%;
-	left: 40%;
-	transform: translate(-50%, -50%);
-	text-align: center;
-} */
 
 .images_dans_svg {
 	position: absolute;
@@ -338,7 +327,6 @@ color: #4D4D4D;
 	top: 20%;
 	left: 0%;
 }
-
 
 /* QUATRIEME SECTION */
 .activites_div {
@@ -644,9 +632,7 @@ color: #4D4D4D;
 	width: 12%;
 }
 
-
-
-
+/* MEDIA QUERIES */
 @media only screen and (max-width: 1200px) {
 
 	.section_cartes {
@@ -681,9 +667,6 @@ color: #4D4D4D;
 	}
 }
 
-
-
-/* 1er breakpoint */
 @media only screen and (max-width: 768px) {
 	.navigation {
 		width: 100vw;
@@ -837,8 +820,6 @@ color: #4D4D4D;
 		padding: 2%;
 	}
 }
-
-/* 2ème breakpoint */
 
 @media only screen and (max-width: 600px) {
 	.section_cartes {

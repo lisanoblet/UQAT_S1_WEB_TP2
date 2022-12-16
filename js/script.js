@@ -89,7 +89,7 @@ let titre_timeline = gsap.timeline(),
   mySplitText = new SplitText(".h1_introduction", {
     type: "chars"
   }),
-  chars = mySplitText.chars; //an array of all the divs that wrap each character
+  chars = mySplitText.chars;
 
 gsap.set(".h1_introduction", {
   perspective: 400
@@ -102,22 +102,6 @@ titre_timeline.from(chars, {
   stagger: 0.4,
   delay: 0.8,
 });
-
-// let titre_timeline2 = gsap.timeline(),
-//   mySplitText2 = new SplitText(".h2_introduction", { type: "words, chars" }),
-//   chars2 = mySplitText2.chars; //an array of all the divs that wrap each character
-
-
-// titre_timeline2.from(chars2, {
-//   duration: 10,
-//   opacity: 0,
-//   ease: "back",
-//   stagger: 0.4, 
-//   delay: 1
-// });
-
-
-
 
 // Deuxième section
 
@@ -146,13 +130,11 @@ equipe_div.forEach(section => {
         pin: true,
         invalidateOnRefresh: true,
         anticipatePin: 1,
-        // markers: true,
       },
     });
 
   } else {
     ScrollTrigger.create({
-      // markers: true,
       trigger: section,
       start: () => "top top",
       pin: true,
@@ -160,7 +142,6 @@ equipe_div.forEach(section => {
     });
   }
 });
-
 
 // Troisième section
 // partie avec drawsvg
@@ -171,24 +152,18 @@ var timeline_map = gsap.timeline({
 let trajet = document.querySelector(".trajet");
 let objectifs_div = document.querySelector(".objectifs_div");
 
-
 timeline_map.from(trajet, {
   scrollTrigger: {
     trigger: trajet,
     start: 'center 60%',
-    //  end:'top trajet.scrollWidth',
     end: "+=3000",
-    // start: () => "top center",
-    // end: () => "+=" + trajet.scrollWidth,
     scrub: 1,
-    markers: true,
     pin: '.objectifs_div',
     anticipatePin: true,
   },
   ease: "none",
   drawSVG: "0 0"
 });
-
 
 timeline_map.from(".map_ottawa", {
   opacity: 0,
@@ -197,7 +172,6 @@ timeline_map.from(".map_ottawa", {
     start: '+=100',
     end: "+=150",
     scrub: 1,
-    markers: true,
   },
   ease: "none",
 });
@@ -209,12 +183,9 @@ timeline_map.from(".date_ottawa", {
     start: '+=100',
     end: "+=150",
     scrub: 1,
-    markers: true,
   },
   ease: "none",
 });
-
-
 
 timeline_map.from(".map_montreal", {
   opacity: 0,
@@ -223,7 +194,6 @@ timeline_map.from(".map_montreal", {
     start: '+=349',
     end: "+=350",
     scrub: 1,
-    markers: true,
   },
   ease: "none",
 });
@@ -235,7 +205,6 @@ timeline_map.from(".date_montreal", {
     start: '+=349',
     end: "+=350",
     scrub: 1,
-    markers: true,
   },
   ease: "none",
 });
@@ -247,7 +216,6 @@ timeline_map.from(".date_montreal2", {
     start: '+=1000',
     end: "+=1020",
     scrub: 1,
-    markers: true,
   },
   ease: "none",
 });
@@ -259,7 +227,6 @@ timeline_map.from(".map_quebec", {
     start: '+=850',
     end: "+=852",
     scrub: 1,
-    markers: true,
   },
   ease: "none",
 });
@@ -271,11 +238,9 @@ timeline_map.from(".date_quebec", {
     start: '+=850',
     end: "+=870",
     scrub: 1,
-    markers: true,
   },
   ease: "none",
 });
-
 
 // Quatrième section 
 // juste une apparition de photos 
