@@ -19,7 +19,7 @@ body {
 }
 
 /* je veux que le site se finisse sur la galerie avec le mouvement de la souris, le footer est donc caché */
-.footer{
+.footer {
 	text-align: center;
 	display: none;
 }
@@ -154,6 +154,9 @@ a {
 
 .hamburger {
 	display: none;
+	/* width: 5vw;
+	height: 5vh;
+	z-index: 100; */
 }
 
 .bar {
@@ -385,7 +388,7 @@ a {
 	width: 100vw;
 	height: 100vh;
 	background: rgb(243, 243, 243);
-	
+
 
 	/* position: relative; */
 }
@@ -407,25 +410,26 @@ a {
 
 
 
-.svg_map_container{
+.svg_map_container {
 	height: 60vh;
 	width: auto;
 	margin: auto;
 
 	/* background-color:aqua; */
-position: relative;
+	position: relative;
 
 }
 
 
-svg{
+svg {
 	/* position: absolute;
 
 	left:0; top:0;  */
-	width:100%; height:100%;
+	width: 100%;
+	height: 100%;
 }
 
-.objectifs_ottawa{
+.objectifs_ottawa {
 	position: absolute;
 	width: 80%;
 	top: 70%;
@@ -434,14 +438,22 @@ svg{
 	text-align: center;
 }
 
-.images_dans_svg{
+.images_dans_svg {
 	position: absolute;
 	width: 10%;
 	top: 20%;
 	left: 0%;
 }
 
-
+.objectifs_map_img{
+	width: auto;
+	height: 100%;
+	margin: auto;
+	position: absolute;
+	
+	top: 0%;
+	left: 20%;
+}
 
 
 
@@ -1040,7 +1052,14 @@ svg{
 
 
 
-
+@media only screen and (max-width: 1200px) {
+	/* .galerie_div {margin-top: 5vh;
+	} */
+	.galerie_titre{
+		margin-top: 5vh;
+		margin-bottom: 5vh;
+	}
+}
 
 
 
@@ -1055,7 +1074,7 @@ svg{
 
 	.titre {
 		width: 70vw;
-		
+
 
 	}
 
@@ -1063,8 +1082,8 @@ svg{
 		display: block;
 		cursor: pointer;
 		position: absolute;
-		top: 5vh;
-		right: 5vw;
+		top: 14%;
+		right: 8%;
 	}
 
 
@@ -1076,19 +1095,20 @@ svg{
 		text-align: right;
 	}
 
-	.navigation_ouvert{
+	.navigation_ouvert {
 		width: 100vw;
 		height: 100vh;
-		background-color: darkslateblue;
+		background-color: #535353;
 		margin: 0;
 		padding: 0;
 		position: absolute;
 		top: 0;
 		left: 0;
 		position: fixed;
-		
+		transition: .3s;
+
 	}
-	
+
 	.autres_titres_mobile {
 		display: flex;
 		flex-direction: column;
@@ -1098,7 +1118,7 @@ svg{
 		height: 100%;
 		/* z-index: 100; */
 		color: black;
-		
+
 		/* top: 5vh;
 		right: 5vw; */
 		/* transition: 0.5s; */
@@ -1109,6 +1129,19 @@ svg{
 		top: 5%;
 		right: 5%;
 	}
+
+	.bar_croix_rotate {
+		transform: rotate(45deg);
+		animation-duration: 4s;
+	}
+
+	.bar_croix__rotate {
+		transform: rotate(-45deg);
+		position: absolute;
+		top: 4%;
+		animation-duration: 4s;
+	}
+
 
 	.h1_introduction {
 		/* padding-top: 15%!important; */
@@ -1154,7 +1187,7 @@ svg{
 		height: 100%;
 	}
 
-	
+
 
 
 	.avis_row {
@@ -1185,14 +1218,15 @@ svg{
 		flex-wrap: wrap;
 	}
 
-	.galerie_image, .galerie_video {
+	.galerie_image,
+	.galerie_video {
 		position: initial;
 		height: 20%;
 		width: auto;
 		padding: 2%;
 	}
 
-	
+
 
 
 
@@ -1210,18 +1244,20 @@ svg{
 /* 2ème breakpoint */
 
 @media only screen and (max-width: 600px) {
-	
-	
+
+
 	.section_cartes {
-		
+
 		width: 80%;
 		height: 62%;
 	}
-	
-	
 
 
-/* 
+.roadtrip_description{
+	font-size: 1rem;
+}
+
+	/* 
 	.equipe_div{
 	
 	}
@@ -1246,7 +1282,7 @@ svg{
 		width: auto;
 		flex-wrap: wrap;
 	} */
-	}
+}
 
 
 

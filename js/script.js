@@ -1,42 +1,18 @@
-/* Javascript */
-
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(DrawSVGPlugin);
 gsap.registerPlugin(SplitText);
-
-
 
 //lecture de la video
 // document.querySelector('.video_intro').playbackRate = .75;
 
 
-// const hamburger = document.querySelector(".hamburger");
-// const navMenu = document.querySelector(".navigation");
-
-// hamburger.addEventListener("click", mobileMenu);
-
-// function mobileMenu() {
-//     hamburger.classList.toggle("active");
-//     navMenu.classList.toggle("active");
-// }
-
-
-// const navLink = document.querySelectorAll(".nav-item");
-
-// navLink.forEach(n => n.addEventListener("click", closeMenu));
-
-// function closeMenu() {
-//     hamburger.classList.remove("active");
-//     navMenu.classList.remove("active");
-// }
-
-
 let navigation = document.querySelector(".navigation");
-
 let autres_titres = document.querySelector(".autres_titres");
-
 let menu_hamburger = document.querySelector(".hamburger");
 let logo = document.querySelector(".titre");
+let bar1 = document.querySelector(".bar1");
+let bar2 = document.querySelector(".bar2");
+let bar3 = document.querySelector(".bar3");
 
 
 menu_hamburger.addEventListener("click", mobileMenu);
@@ -48,33 +24,29 @@ function mobileMenu() {
     navigation.classList.remove("navigation_ouvert");
     logo.style.display = "block";
     menu_hamburger.classList.remove("hamburger_ouvert");
-
-
-
+    bar1.classList.remove("bar_croix_rotate");
+    bar2.style.opacity = "1";
+    bar3.classList.remove("bar_croix__rotate");
+  
   } else {
     navigation.classList.add("navigation_ouvert");
-
     autres_titres.classList.add("autres_titres_mobile");
-
     menu_hamburger.classList.add("hamburger_ouvert");
     logo.style.display = "none";
-
-
-
-
+    bar1.classList.add("bar_croix_rotate");
+    bar2.style.opacity = "0";
+    bar3.classList.add("bar_croix__rotate");
   }
 
 
   // document.addEventListener("click", function(){
   //   autres_titres.classList.remove("autres_titres_mobile");
-
   // });
 
 }
 
 
 let links_nav = document.querySelectorAll(".nav-item");
-
 links_nav.forEach(n => n.addEventListener("click", closeMenu));
 
 function closeMenu() {
@@ -83,6 +55,7 @@ function closeMenu() {
 
 
 
+// Première section
 
 
 // gsap.from(".h1_introduction", {
@@ -92,8 +65,6 @@ function closeMenu() {
 //   ease: "power2"
 // });
 
-
-
 gsap.from(".h2_introduction", {
   opacity: 0,
   x: 400,
@@ -101,15 +72,11 @@ gsap.from(".h2_introduction", {
   ease: "power2"
 });
 
-
 gsap.from(".video_intro", {
   opacity: 0,
   duration: 1,
   ease: "power2"
 });
-
-
-
 
 gsap.from(".navigation", {
   opacity: 0,
@@ -120,10 +87,6 @@ gsap.from(".roadtrip_description", {
   opacity: 0,
   duration: 2
 });
-
-
-
-
 
 let titre_timeline = gsap.timeline(),
   mySplitText = new SplitText(".h1_introduction", { type: "chars" }),
@@ -138,8 +101,6 @@ titre_timeline.from(chars, {
   stagger: 0.4, 
   delay: 0.5,
 });
-
-
 
 // let titre_timeline2 = gsap.timeline(),
 //   mySplitText2 = new SplitText(".h2_introduction", { type: "words, chars" }),
@@ -157,13 +118,12 @@ titre_timeline.from(chars, {
 
 
 
-// SECTION equipe 
+// Deuxième section
+
 // passage d'un scroll vertical à horizontal puis vertical
 let equipe_div = document.querySelectorAll(".equipe_div");
 
 equipe_div.forEach(section => {
-
-  //gsap.utils.toArray(".equipe_div").forEach((section) => {
 
   if (section.classList.contains('horizontal')) {
 
@@ -171,11 +131,8 @@ equipe_div.forEach(section => {
     const personne_carte = section.querySelector('.section_carte')
 
     gsap.to(conteneur_cartes, {
-      //x: () => { return -(cartesWrap.scrollWidth - window.innerWidth + window.innerWidth*0.05) },
-      //x: () => {return - ((cartesWrap.scrollWidth - window.innerWidth + window.innerWidth*0.05) + (window.innerWidth/2 - onecarte.offsetWidth/2))},
-      x: () => {
+     x: () => {
         return -((conteneur_cartes.scrollWidth - window.innerWidth + window.innerWidth * 0.05) + (window.innerWidth / 2 - personne_carte.offsetWidth / 2))
-        // return -conteneur_cartes.scrollWidth + personne_carte.offsetWidth * 4.5
       },
       ease: "none",
       scrollTrigger: {
@@ -191,7 +148,6 @@ equipe_div.forEach(section => {
     });
 
   } else {
-
     ScrollTrigger.create({
       markers: true,
       trigger: section,
@@ -199,30 +155,14 @@ equipe_div.forEach(section => {
       pin: true,
       anticipatePin: 1,
     });
-
   }
-
 });
 
-// objectifs
 
-// gsap.to("Calque_1", {duration: 1, drawSVG: "20% 80%"});
-
+// Troisième section
 var timeline_map = gsap.timeline({
   repeat: 1,
 });
-
-// timeline_map.to(".trajet", {
-//   drawSVG: "100%",
-//   stagger: 0.1,
-
-//   scrollTrigger: {
-//     trigger: ".svg_map_container",
-//     start: "center center",
-//     scrub: true,
-//     pin: true
-//   }
-// });
 
 let trajet = document.querySelector(".trajet");
 timeline_map.from(trajet,{
@@ -271,39 +211,13 @@ timeline_map.from(".images_dans_svg",{
 });
 
 
-// .fromTo(shapes, {drawSVG:"0%"}, {duration: 10, drawSVG:"10%", immediateRender:false}, "+=0.1")
-// .to(shapes, {duration: 1, drawSVG:"90% 100%", stagger: 0.5})
-// .to(shapes, {duration: 1, rotation:360, scale:0.5, drawSVG:"100%", stroke:"white", strokeWidth:6, transformOrigin:"50% 50%"})
-// .to(shapes, {duration: 0.5, stroke:"red", scale:1.5, opacity:0, stagger: 0.2})
-
-
-// section activités 
-
-
-// let activites_timeline = gsap.timeline({onComplete: maFonction, repeat: 1, repeatDelay: 3, yoyo:true});
-//     fish.from(".poisson #fish", {opacity:1, xPercent:-200, rotation:200, duration:1}),
-//     fish.from(".poisson .text", {opacity:0, scale:10, duration:1.2, ease:"power4"}),
-//     fish.from(".poisson #jimmy", {opacity:0, skewX:15, duration:0.3, scale:0.5, duration:1, ease:"power2"}, "-=0.7"),
-//     fish.from(".wall", {xPercent:-100, duration:1, ease:"bounce"});
-
-//     ScrollTrigger.create({
-//         animation:fish,
-//         trigger:".poisson",
-//         markers:true,
-//         start:"center center",
-//         toggleActions:"restart none none reverse",
-//         //scrub:true,
-//         //pin:true,
-//       });
-
-
+// Quatrième section  
 let activites = document.querySelectorAll(".activite_carte");
 
 activites.forEach((element) => {
   let photo = element.querySelectorAll(".activite_photo");
   let description = element.querySelectorAll(".activite_description");
   let sous_description = element.querySelectorAll(".activite_sous_description");
-
 
   gsap.set(photo, {
     scale: 0
@@ -364,205 +278,15 @@ activites.forEach((element) => {
   });
 })
 
-
-
-
-// let galerie_photos = document.querySelector('.galerie1');
-// let activites2_photos = document.querySelector('.activites2_photos')
-// let activites3_photos = document.querySelector('.activites3_photos')
-let conteneur_photos = document.querySelector('.galerie_photos');
-
-let carte_photos = document.querySelector('.galerie_carte');
-
-let galerie1 = document.querySelector('.galerie1');
-let galerie_div = document.querySelector('.galerie_div');
-
-
-
-
-//   gsap.fromTo(".galerie_photos", {
-//     xPercent: 0,
-//   }, {
-//     // xPercent: -activites3_photos.scrollWidth,
-//       xPercent: -12,
-
-//     // duration: 10,
-//     // ease: "elastic",
-//     scrollTrigger: {
-//               trigger: ".galerie_photos",
-//               start: "top bottom",
-//               markers: true,
-//               end: "top top",
-//               toggleActions: "play resume none none ",
-//       scrub: true,
-//           }
-//   });
-
-// gsap.fromTo(".galerie2_photos", {
-//   xPercent: -14,
-// }, {
-//   xPercent: -4,
-//   // duration: 10,
-//   // ease: "elastic",
-//   scrollTrigger: {
-//             trigger: ".galerie2_photos",
-//             start: "top bottom",
-//             markers: true,
-//             end: "top top",
-//             toggleActions: "play resume none none ",
-//     scrub: true,
-//         }
-// });
-
-
-// gsap.fromTo(".galerie3_photos", {
-//   xPercent: 0,
-// }, {
-//   // xPercent: -activites3_photos.scrollWidth,
-//     xPercent: -10,
-
-//   // duration: 10,
-//   // ease: "elastic",
-//   scrollTrigger: {
-//             trigger: ".galerie3_photos",
-//             start: "top bottom",
-//             markers: true,
-//             end: "top top",
-//             toggleActions: "play resume none none ",
-//     scrub: true,
-//         }
-// });
-
-
-
-
-
-
-let galerie_conteneur = ".galerie_conteneur";
-
-
-let mapWidth = gsap.utils.mapRange(0, document.body.clientWidth, 100, -100)
-let mapHeight = gsap.utils.mapRange(0, document.body.clientHeight, 50, -50)
-
-//animation galerie et mouvement de souris 
-
-window.addEventListener("mousemove", (e) => {
-
-  gsap.to(galerie_conteneur, {
-    duration: 3,
-    overwrite: "auto",
-    x: mapWidth(e.clientX) * 1.1,
-    y: mapHeight(e.clientY) * 2,
-    stagger: 0.1,
-    ease: "power4.out",
-  });
-
-
-  // activites.forEach((element) => {
-  //   gsap.to(element, {
-  //     duration: 1,
-  //     scale: 2,
-  //     ease: "power2.out",
-  //     scrollTrigger: {
-  //         trigger: element,
-  //         start: "top bottom-=100",
-  //         end: "bottom top+=100",
-  //         toggleActions: "play resume reverse none"
-  //     }
-  // });
-
-  // }
-
-
-
-  // gsap.from(".galerie_image1", {
-  //   opacity: 0,
-  //   x: 400,
-  //   duration: 2,
-  //   ease: "power2"
-  // });
-});
-
-
-// galerie_conteneur.addEventListener("mouseover", function(){
-//   gsap.to(".galerie_image1", {
-// scale: 0,
-//     duration: 2,
-//     ease: "power2"
-//   });
-// });
-
-
-//animation sur le hover de la galerie
-
-document.querySelectorAll(".galerie_image").forEach(function (element) {
-
-  let animation = gsap.timeline({
-    paused: true
-  });
-
-  animation.to(element, {
-    scale: 1.2,
-    duration: .5,
-    ease: "power1.inOut"
-  });
-
-  element.addEventListener("mouseenter", function () {
-    animation.play();
-  });
-
-  element.addEventListener("mouseleave", function () {
-    animation.reverse();
-  });
-});
-
-
-
-
-// let galerie_test = document.querySelectorAll(".galerie_image");
-
-// galerie_test.forEach((element) => {
-//   let galerie_image = element.querySelectorAll(".galerie_image");
-//   let description = element.querySelectorAll(".activite_description")
-
-//   gsap.set(galerie_image, {
-//     scale: 0
-//   });
-
-//   gsap.to(galerie_image, {
-//     duration: 1.2,
-//     autoAlpha: 1,
-//     scale: 1,
-//     ease: "power2.out",
-//     scrollTrigger: {
-//       trigger: galerie_image,
-//       start: "top bottom-=100",
-//       end: "bottom top+=100",
-//       toggleActions: "play resume none reverse"
-//     }
-//   });
-
-
-// })
-
-
-
-
-
-
-
-
-
+// Cinquième section
 
 let avis_perso = document.querySelectorAll(".avis_column");
 // let avis_stars = document.querySelectorAll(".avis_starf");
-
 
 avis_perso.forEach((element) => {
   let avis_stars = element.querySelectorAll(".avis_starf");
   let avis_nom_ville = element.querySelectorAll(".avis_nom_ville");
   let avis_ville = element.querySelectorAll(".avis_ville");
-
 
   gsap.set(avis_nom_ville, {
     opacity: 0,
@@ -603,44 +327,7 @@ avis_perso.forEach((element) => {
       toggleActions: "play resume none none"
     }
   });
-
-
-  // gsap.set(avis_stars, {
-  //   opacity: 0,
-  //   scale: 0,
-  // });
-
-  // gsap.to(avis_stars, {
-  //   duration: 2,
-  //   // autoAlpha: 1,
-  //   opacity: 1,
-  //   scale: 1,
-  //   ease: "power2.out",
-  //   scrollTrigger: {
-  //     trigger: avis_stars,
-  //     start: "top bottom",
-  //     end: "top 85%",
-  //     scrub: true,
-  //     toggleActions: "play resume none none"
-  //   }
-  // })
 });
-
-
-
-// let tween = gsap.from(".avis_starf", {
-//   opacity: 0,
-// }),
-//     st = ScrollTrigger.create({
-//         trigger: ".avis_starf",
-//         start: "top +=500",
-//         animation: tween,
-//               toggleActions: "play resume reverse none"
-
-//       });
-
-// console.log(st.animation);
-
 
 
 let stars = gsap.timeline();
@@ -675,3 +362,56 @@ stars.to("#star1", {
     //scrub:true,
     //pin:true,
   });
+
+  
+
+// Sixième section
+let conteneur_photos = document.querySelector('.galerie_photos');
+let carte_photos = document.querySelector('.galerie_carte');
+let galerie1 = document.querySelector('.galerie1');
+let galerie_div = document.querySelector('.galerie_div');
+let galerie_conteneur = ".galerie_conteneur";
+let mapWidth = gsap.utils.mapRange(0, document.body.clientWidth, 100, -100)
+let mapHeight = gsap.utils.mapRange(0, document.body.clientHeight, 50, -50)
+
+//animation galerie et mouvement de souris 
+
+window.addEventListener("mousemove", (e) => {
+
+  gsap.to(galerie_conteneur, {
+    duration: 3,
+    overwrite: "auto",
+    x: mapWidth(e.clientX) * 1.1,
+    y: mapHeight(e.clientY) * 2,
+    stagger: 0.1,
+    ease: "power4.out",
+  });
+});
+
+//animation sur le hover de la galerie
+document.querySelectorAll(".galerie_image").forEach(function (element) {
+
+  let animation = gsap.timeline({
+    paused: true
+  });
+
+  animation.to(element, {
+    scale: 1.2,
+    duration: .5,
+    ease: "power1.inOut"
+  });
+
+  element.addEventListener("mouseenter", function () {
+    animation.play();
+  });
+
+  element.addEventListener("mouseleave", function () {
+    animation.reverse();
+  });
+});
+
+
+
+
+
+
