@@ -18,51 +18,18 @@ body {
 	/* display: inline-block; */
 }
 
-/* je veux que le site se finisse sur la galerie avec le mouvement de la souris, le footer est donc caché */
+/* je veux que le site se finisse sur la galerie avec le mouvement de la souris, le footer est donc très très petit  */
 .footer {
-	text-align: center;
-	display: none;
+	text-align: right;
 }
-
-h1 {
-	/* text-align: right;
-	padding: 0;
-	margin: 0;
-	position: relative;
-	right: 10vw;
-	top: 45vh;
-	font-size: 8vw;
-	color: rgb(233, 233, 233);
-	letter-spacing: -3px; */
-	/* padding:0;
-	margin:0;
-	color: white;
-	font-size:3em;
-	line-height: 1em;
-	font-style: italic;
-	 */
-}
-
-h2 {
-	/* text-align: right;
-	padding: 0;
-	margin: 0;
-	font-size: 3vw;
-	right: 6vw;
-	top: 85vh;
-	color: rgb(233, 233, 233); */
-	/* text-transform: uppercase;
-	font-size: 0.4em;
-	padding: 5px 0;
-	margin:0; */
+.footer p{
+	font-size: .6rem;
+	color:rgb(157, 157, 157);
 }
 
 p {
 	font-size: 1.2rem;
-	/* color: rgb(41, 41, 41); */
 }
-
-
 
 /* Solid border */
 hr.solid {
@@ -71,16 +38,7 @@ hr.solid {
 	width: 60vw;
 	margin: auto;
 	margin-top: 3%;
-	/* padding: 2%; */
-	/* padding-bottom: 4%; */
 }
-
-
-
-
-
-
-
 
 /* NAVIGATION ORDINATEUR*/
 
@@ -90,16 +48,11 @@ hr.solid {
 	height: 10vh;
 	z-index: 100;
 	top: 2%;
-	/* padding-top: 1%; */
 	right: 3%;
-	/* padding-right: 3%; */
 	left: 3%;
-	/* padding-left: 3%; */
-	/* padding-bottom: 1%; */
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	/* background: rgb(255,255,255); */
 }
 
 .titre {
@@ -107,9 +60,7 @@ hr.solid {
 	font-weight: 600;
 	width: 40%;
 	font-family: 'Playfair Display', serif;
-
 }
-
 
 a {
 	text-decoration: none;
@@ -129,34 +80,25 @@ a {
 	font-size: 1.2rem;
 }
 
-
 .nav-item:hover {
 	color: rgb(83, 83, 83);
 	transition: 1s;
 }
 
-
 /* navbar mobile */
 
 .hamburger {
 	display: none;
-
 }
 
 .bar {
 	background-color: rgb(193, 193, 193);
-
 }
-
-
 
 /* NAVBAR MOBILE */
 
 .hamburger {
 	display: none;
-	/* width: 5vw;
-	height: 5vh;
-	z-index: 100; */
 }
 
 .bar {
@@ -166,31 +108,9 @@ a {
 	margin: 5px auto;
 	-webkit-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
-	/* background-color: #101010; */
 }
 
-
-/* NAVBAR MOBILE */
-/* 
-.navigation_mobile{
-	display: none;
-}
-
-.navigation{
-	display: block;
-}
-
-
- */
-
-
-
-
-
-
-
-
-/* DIVISION INTRODUCTION */
+/* PREMIERE SECTION */
 
 .div_intro {
 	width: 100vw;
@@ -204,7 +124,7 @@ a {
 	margin: auto;
 	min-width: 100%;
 	min-height: 100%;
-	object-fit: fill;
+	object-fit: cover;
 }
 
 .h1_introduction {
@@ -212,18 +132,11 @@ a {
 	padding: 0;
 	margin: 0;
 	position: absolute;
-	right: 10vw;
+	right: 5vw;
 	top: 60vh;
 	font-size: 8rem;
 	color: rgb(233, 233, 233);
 	letter-spacing: -3px;
-	/* padding:0;
-	margin:0;
-	color: white;
-	font-size:3em;
-	line-height: 1em;
-	font-style: italic;
-	 */
 }
 
 .h2_introduction {
@@ -235,35 +148,20 @@ a {
 	top: 80vh;
 	font-size: 3rem;
 	color: rgb(233, 233, 233);
-	/* text-transform: uppercase;
-	font-size: 0.4em;
-	padding: 5px 0;
-	margin:0; */
 }
 
 .roadtrip_description {
-	color: rgb(153, 153, 153);
+	color: rgb(219, 219, 219);
 	position: absolute;
 	left: 3vw;
 	top: 90vh;
 	text-align: center;
 }
 
-/* DIVISION equipe */
-
-/* .equipe_div{
-	width: 100vw;
-	height: 100vh;
-	background-color: white;
-} */
-
+/* DEUXIEME SECTION */
 .equipe_div {
 	width: 100vw;
 	height: 100vh;
-
-	/* display: flex;
-	align-items: center;
-	justify-content: flex-start; */
 	padding: 5vw;
 	box-sizing: border-box;
 }
@@ -274,9 +172,6 @@ a {
 	margin: 0;
 	margin-top: 2%;
 	font-size: 3rem;
-	/* position: absolute; */
-	/* left: 6vw;
-	top: 15vh; */
 	color: rgb(124, 124, 124);
 }
 
@@ -297,9 +192,7 @@ a {
 	width: 20%;
 	margin-right: 2%;
 	display: flex;
-	/* align-items: center; */
 	flex-shrink: 0;
-	/* justify-content: center; */
 	justify-content: flex-end;
 	align-items: flex-end;
 	flex-wrap: wrap;
@@ -310,16 +203,30 @@ a {
 .nom_personne {
 	font-size: 2rem;
 	padding-right: 4%;
-	/* color: rgb(222, 222, 222); */
 }
 
 .description_personne {
 	text-align: right;
-	/* width: 40%; */
 	padding-right: 4%;
 	padding-bottom: 5%;
-	/* color: rgb(222, 222, 222); */
 	mix-blend-mode: hard-light;
+}
+
+.nom_voiture {
+	font-size: 2rem;
+	padding-right: 4%;
+	color: #838383;
+}
+
+.description_voiture {
+	color:#838383;
+	text-align: right;
+	padding-right: 4%;
+	padding-bottom: 5%;
+}
+
+.carte12, .carte11{
+	border:rgb(226, 226, 226) solid 3px;
 }
 
 .description_equipe {
@@ -375,60 +282,47 @@ a {
 }
 
 .carte11 {
-	background-image: url("../medias/be5dbcd6041dcab631a5120dc139e680.jpg");
+	background-image: url("../medias/equipe/passat.jpg");
 }
 
 .carte12 {
-	background-image: url("../medias/be5dbcd6041dcab631a5120dc139e680.jpg");
+	background-image: url("../medias/equipe/mazda.jpg");
 }
 
-/* DIVISION OBJECTIFS */
-
+/* TROISIEME SECTION */
 .objectifs_div {
 	width: 100vw;
 	height: 100vh;
 	background: rgb(243, 243, 243);
-
-
-	/* position: relative; */
 }
 
 .objectifs_titre {
 	text-align: left;
 	padding: 5vw;
 	margin: 0;
-
 	padding-top: 6%;
 	padding-right: 4%;
 	font-size: 3rem;
-	/* position: absolute; */
-	/* right: 60vw;
-	top: 15vh; */
 	color: rgb(124, 124, 124);
 }
-
-
-
 
 .svg_map_container {
 	height: 60vh;
 	width: auto;
 	margin: auto;
-
-	/* background-color:aqua; */
 	position: relative;
-
 }
 
-
 svg {
-	/* position: absolute;
-
-	left:0; top:0;  */
 	width: 100%;
 	height: 100%;
 }
 
+text{
+	font-family: 'Playfair Display', serif;
+color: #4D4D4D;
+}
+/* 
 .objectifs_ottawa {
 	position: absolute;
 	width: 80%;
@@ -436,7 +330,7 @@ svg {
 	left: 40%;
 	transform: translate(-50%, -50%);
 	text-align: center;
-}
+} */
 
 .images_dans_svg {
 	position: absolute;
@@ -445,168 +339,13 @@ svg {
 	left: 0%;
 }
 
-.objectifs_map_img{
-	width: auto;
-	height: 100%;
-	margin: auto;
-	position: absolute;
-	
-	top: 0%;
-	left: 20%;
-}
 
-
-
-
-
-
-/* parametres communs aux 3 villes */
-/* 
-.objectifs_titre_ville {
-	padding: 0;
-	margin: 0;
-	font-size: 2.5vw;
-	padding-top: 3%;
-}
-
-.ville_soustitre {
-	text-align: justify;
-	padding: 0;
-	margin: 0;
-	color: rgb(124, 124, 124);
-	font-size: 1.2vw;
-}
-
-.ville_images {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 1%;
-}
-
-.ville_images>img {
-	width: 15%;
-	height: auto;
-	padding: 1.5%;
-	padding-bottom: 0;
-}
-
-.ville_airbnb_images {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 1%;
-}
-
-.ville_airbnb_images>img {
-	width: 15%;
-	height: auto;
-	padding: 1.5%;
-	padding-bottom: 0;
-}
- */
-
-/* parametres specifiques a chaque ville */
-/* 
-.objectifs_titre_ottawa {
-	text-align: left;
-	padding-left: 10%;
-}
-
-.ottawa_soustitre {
-	padding-left: 12%;
-}
-
-.ottawa_description {
-	width: 30%;
-	padding: 2%;
-	font-size: 1.3vw;
-}
-
-.ottawa_airbnb_description {
-	text-align: center;
-	color: rgb(124, 124, 124);
-	font-size: 1vw;
-}
-
-.ottawa_souhaits {
-	padding-top: 4%;
-	text-align: left;
-	padding-left: 10vw;
-	font-size: 1.3vw;
-}
-
-.ottawa_souhaits_liste {
-	padding: 1%;
-	padding-left: 15vw;
-	font-size: 1.2vw;
-	 list-style: url('/media/examples/rocket.svg'); 
-	text-align: left;
-}
-
-.objectifs_titre_montreal {
-	text-align: left;
-	padding-left: 10%;
-}
-
-.montreal_soustitre {
-	padding-left: 12%;
-}
-
-.montreal_description {
-	width: 30%;
-	padding: 2%;
-	font-size: 1.3vw;
-}
-
-.montreal_airbnb_description {
-	text-align: center;
-	color: rgb(124, 124, 124);
-	font-size: 1vw;
-}
-
-.montreal_souhaits {
-	padding-top: 4%;
-	text-align: left;
-	padding-left: 10vw;
-	font-size: 1.3vw;
-}
-
-.montreal_souhaits_liste {
-	padding: 1%;
-	padding-left: 15vw;
-	font-size: 1.2vw;
-	list-style: url('/media/examples/rocket.svg'); 
-	text-align: left;
-} 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* DIVISION activites */
-
+/* QUATRIEME SECTION */
 .activites_div {
 	width: 100vw;
 	height: auto;
 	padding-bottom: 2%;
 	background-color: rgb(255, 255, 255);
-
-	/* box-sizing: border-box; */
 }
 
 .activites_titre {
@@ -616,40 +355,24 @@ svg {
 	padding-top: 2%;
 	font-size: 3rem;
 	color: rgb(124, 124, 124);
-	/* margin-bottom: 2%; */
 	padding: 5vw;
 }
-
 
 .row {
 	width: 90vw;
 	margin: auto;
 	display: flex;
 	flex-wrap: wrap;
-	/* padding: 0 4px; */
 	justify-content: space-evenly;
-
 }
 
-/* Create four equal columns that sits next to each other */
 .column {
 	flex: 20%;
 	max-width: 24%;
-
-	/* padding: 0 4px; */
 }
 
 .activite_carte {
 	width: 100%;
-	/* padding: 2%;
-	padding-bottom: 8%;
-	position: relative; */
-	/* text-align: center; */
-	/* 
-	background-size: contain;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 0; */
 	position: relative;
 	margin-bottom: 4%;
 }
@@ -668,64 +391,32 @@ svg {
 	transform: translate(-50%, -50%);
 	text-align: center;
 	color: white;
-
 }
 
 .activite_description {
 	font-size: 1rem;
 	font-family: 'Raleway', sans-serif;
-
 }
 
 .activite_sous_description {
 	font-weight: 100;
 	font-size: 0.8rem;
 	font-family: 'Raleway', sans-serif;
-
 }
 
-
-
-/* .activite1 {
-	background-image: url("../medias/activites/activites_ottawa.jpg");
-	padding-top: 125%;
-
-}
-
-.activite2 {
-	background-image: url("../medias/activites/activites_montreal.jpg");
-	padding-top: 71%;
-}
-.activite3 {
-	background-image: url("../medias/activites/activites_queb_jour.jpg");
-
-	padding-top: 125%;
-} */
-
-
-
-
-
-
-
-
-/* DIVISION AVIS */
-
+/* CINQUIEME SECTION */
 .avis_div {
 	width: 100vw;
 	height: auto;
 	background: rgb(243, 243, 243);
 	padding: 5%;
-
 }
-
 
 .avis_row {
 	width: auto;
 	margin: auto;
 	display: flex;
 	flex-wrap: wrap;
-	/* padding: 0 4px; */
 	justify-content: space-evenly;
 	padding-right: 5%;
 }
@@ -736,7 +427,6 @@ svg {
 	padding-right: 2%;
 }
 
-
 .avis_titre {
 	text-align: left;
 	padding: 0;
@@ -744,8 +434,6 @@ svg {
 	padding-top: 2%;
 	font-size: 3rem;
 	color: rgb(124, 124, 124);
-	/* margin-bottom: 2%; */
-	/* padding: 5vw; */
 }
 
 .description_avis {
@@ -753,9 +441,6 @@ svg {
 	display: block;
 	width: 100%;
 	color: rgb(41, 41, 41);
-	/* padding-bottom: 8%; */
-	/* padding-top: 4%; */
-
 }
 
 .avis_nom_ville {
@@ -765,32 +450,21 @@ svg {
 	font-size: 1.2rem;
 	color: rgb(104, 104, 104);
 	padding-top: 4%;
-	/* padding-bottom: .4%; */
-
-	/* margin-bottom: 2%; */
 }
 
 .avis_ville {
-	/* text-align: justify; */
-
 	display: block;
 	width: 90%;
 	color: rgb(41, 41, 41);
-
 	margin-bottom: 8%;
-	/* padding-top: 4%; */
-
 }
-
 
 .avis_div_stars {
 	display: flex;
-	/* padding: 0 4px; */
 	width: auto;
 	flex-direction: row;
 	justify-content: left;
 	padding-bottom: 2%;
-
 }
 
 .avis_starf {
@@ -800,31 +474,14 @@ svg {
 	padding-left: 0;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-/* DIVISION galerie */
-
+/* SIXIEME SECTION */
 .galerie_div {
 	width: 100vw;
 	height: 100vh;
-	/* padding: 2%; */
 	overflow: hidden;
-	/* display: flex; */
-	/* justify-content: center; */
 }
 
 .galerie_titre {
-	/* display: block; */
 	text-align: left;
 	padding: 0;
 	margin: 0;
@@ -832,19 +489,13 @@ svg {
 	margin-top: 1%;
 	font-size: 3rem;
 	color: rgb(124, 124, 124);
-	/* margin-bottom: 2%; */
 	padding: 4vw;
 	padding-bottom: 0;
 }
 
-
-
-
-
 ::-webkit-scrollbar {
 	display: none;
 }
-
 
 .galerie_conteneur {
 	margin: auto;
@@ -854,10 +505,8 @@ svg {
 	justify-content: center;
 	align-items: center;
 	background: none;
-	/* border:1px solid grey; */
 	margin-top: 2%;
 	position: relative;
-	/* overflow: hidden; */
 }
 
 .galerie_image {
@@ -929,133 +578,104 @@ svg {
 	left: 2%;
 }
 
-
-
-
 .galerie_image12 {
 	top: -20%;
 	left: 50%;
 	width: 10%;
-
 }
 
 .galerie_image13 {
 	top: -20%;
 	left: 40%;
 	width: 8%;
-
 }
 
 .galerie_image14 {
 	top: 0;
 	left: -12%;
 	width: 12%;
-
 }
 
 .galerie_image15 {
 	top: 25%;
 	left: -12%;
 	width: 10%;
-
 }
 
 .galerie_image16 {
 	top: -15%;
 	left: 95%;
 	width: 15%;
-
 }
 
 .galerie_image17 {
 	top: -15%;
 	left: 64%;
 	width: 8%;
-
 }
 
 .galerie_image18 {
 	top: 55%;
 	left: 65%;
 	width: 12%;
-
 }
 
 .galerie_image19 {
 	top: 50%;
 	left: -8%;
 	width: 9%;
-
 }
 
 .galerie_image20 {
 	top: 55%;
 	left: 16%;
 	width: 12%;
-
 }
 
 .galerie_image21 {
 	top: 50%;
 	left: 95%;
 	width: 12%;
-
 }
 
 .galerie_image22 {
 	top: 55%;
 	left: 16%;
 	width: 12%;
-
 }
 
-
-/* 
-.galerie_photos,
-.galerie2_photos,
-.galerie3_photos {
-	display: flex;
-	align-items: center;
-	justify-content: left;
-	margin: 0;
-	padding: 0;
-} */
-
-/* .activite_carte{
-	background-size: cover;
-	height: 60vh;
-	width: 40vw;
-} */
-
-/* .galerie_carte {
-	position: relative;
-	margin: 0;
-	padding: 0;
-}
-
-.galerie_carte img {
-	height: 40vh;
-	width: auto;
-}
-
-.galerie_description {
-	position: absolute;
-	top: 80%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	text-align: center;
-
-	font-size: 1.4rem;
-	color: rgb(241, 241, 241);
-	font-family: "Raleway", sans-serif;
-} */
 
 
 
 @media only screen and (max-width: 1200px) {
-	/* .galerie_div {margin-top: 5vh;
-	} */
-	.galerie_titre{
+
+	.section_cartes {
+		padding: 1%;
+		width: 30%;
+		height: 70%;
+		padding-top: 5%;
+		padding-bottom: 4%;
+	}
+
+	.section_carte {
+		width: 100%;
+		height: 100%;
+	}
+
+	.activites_textes{
+		top: 80%;
+	}
+
+	.activite_description{
+		font-size: 0.8rem;
+	}
+
+	.activite_sous_description{
+		font-size: 0.7rem;
+	}
+
+
+	.galerie_titre {
 		margin-top: 5vh;
 		margin-bottom: 5vh;
 	}
@@ -1066,16 +686,11 @@ svg {
 /* 1er breakpoint */
 @media only screen and (max-width: 768px) {
 	.navigation {
-		/* top: 1%;
-		left: 2%; */
 		width: 100vw;
-
 	}
 
 	.titre {
 		width: 70vw;
-
-
 	}
 
 	.hamburger {
@@ -1085,7 +700,6 @@ svg {
 		top: 14%;
 		right: 8%;
 	}
-
 
 	.autres_titres {
 		display: none;
@@ -1106,7 +720,6 @@ svg {
 		left: 0;
 		position: fixed;
 		transition: .3s;
-
 	}
 
 	.autres_titres_mobile {
@@ -1116,12 +729,7 @@ svg {
 		align-items: center;
 		width: 100%;
 		height: 100%;
-		/* z-index: 100; */
 		color: black;
-
-		/* top: 5vh;
-		right: 5vw; */
-		/* transition: 0.5s; */
 	}
 
 	.hamburger_ouvert {
@@ -1142,20 +750,14 @@ svg {
 		animation-duration: 4s;
 	}
 
-
 	.h1_introduction {
-		/* padding-top: 15%!important; */
 		font-size: 5rem;
 	}
 
 	.h2_introduction {
-		/* padding-top: 15%!important; */
 		font-size: 2.5rem;
 		top: 75vh;
 	}
-
-
-
 
 	/* titres de sections */
 	h2,
@@ -1178,27 +780,37 @@ svg {
 		height: 70%;
 		padding-top: 5%;
 		padding-bottom: 8%;
-
 	}
 
 	.section_carte {
-
 		width: 100%;
 		height: 100%;
 	}
 
+	.activites_textes{
+		top: 90%;
+	}
 
+	.activite_description{
+		font-size: 1rem;
+	}
 
+	.activite_sous_description{
+		font-size: 0.8rem;
+	}
+
+	.column {
+		flex: 50%;
+		max-width: 47%;
+	}
 
 	.avis_row {
-
 		flex-direction: column;
 	}
 
 	.avis_ville,
 	.avis_starf {
 		font-size: 1rem;
-
 	}
 
 	.avis_ville {
@@ -1210,7 +822,6 @@ svg {
 	.galerie_div {
 		width: 100vw;
 		height: 160vh;
-
 	}
 
 	.galerie_conteneur {
@@ -1225,80 +836,30 @@ svg {
 		width: auto;
 		padding: 2%;
 	}
-
-
-
-
-
-	/* .galerie_carte img {
-		height: 20vh;
-		width: auto;
-		flex-wrap: wrap;
-		position: relative;
-	} */
-
 }
-
-
 
 /* 2ème breakpoint */
 
 @media only screen and (max-width: 600px) {
-
-
 	.section_cartes {
-
 		width: 80%;
 		height: 62%;
 	}
 
-
-.roadtrip_description{
-	font-size: 1rem;
-}
-
-	/* 
-	.equipe_div{
-	
+	.roadtrip_description {
+		font-size: 1rem;
 	}
-	
-	p{
-		font-size: 1.3rem;
-	}
-	
-	h2{
-		padding-top: 15%!important;
-	}
-	
-	.section_carte {
-		
-		width: 80%;
-		height: 60%;
-	}
-	
-	
-	.galerie_carte img {
-		height: 20vh;
-		width: auto;
-		flex-wrap: wrap;
-	} */
-}
 
-
-
-/* Responsive layout - makes a two column-layout instead of four columns */
-@media screen and (max-width: 800px) {
-	.column {
-		flex: 50%;
-		max-width: 47%;
-	}
-}
-
-/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
 	.column {
 		flex: 100%;
 		max-width: 100%;
+	}
 
+	.description_equipe, .description_avis{
+		width: 90%;
+	}
+
+	.galerie_div{
+		height: 210vh;
 	}
 }

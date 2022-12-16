@@ -5,7 +5,7 @@ gsap.registerPlugin(SplitText);
 //lecture de la video
 // document.querySelector('.video_intro').playbackRate = .75;
 
-
+// MENU RESPONSIVE
 let navigation = document.querySelector(".navigation");
 let autres_titres = document.querySelector(".autres_titres");
 let menu_hamburger = document.querySelector(".hamburger");
@@ -17,6 +17,7 @@ let bar3 = document.querySelector(".bar3");
 
 menu_hamburger.addEventListener("click", mobileMenu);
 
+// certainement pas la maniere la plus optimale de faire un menu mais bon 
 function mobileMenu() {
   if (autres_titres.classList.contains("autres_titres_mobile")) {
     autres_titres.classList.remove("autres_titres_mobile");
@@ -27,7 +28,7 @@ function mobileMenu() {
     bar1.classList.remove("bar_croix_rotate");
     bar2.style.opacity = "1";
     bar3.classList.remove("bar_croix__rotate");
-  
+
   } else {
     navigation.classList.add("navigation_ouvert");
     autres_titres.classList.add("autres_titres_mobile");
@@ -37,26 +38,22 @@ function mobileMenu() {
     bar2.style.opacity = "0";
     bar3.classList.add("bar_croix__rotate");
   }
-
-
-  // document.addEventListener("click", function(){
-  //   autres_titres.classList.remove("autres_titres_mobile");
-  // });
-
 }
 
-
+// POUR FERMER LE MENU
 let links_nav = document.querySelectorAll(".nav-item");
 links_nav.forEach(n => n.addEventListener("click", closeMenu));
 
 function closeMenu() {
   autres_titres.classList.remove("autres_titres_mobile");
+  navigation.classList.remove("navigation_ouvert");
+  bar1.classList.remove("bar_croix_rotate");
+  bar2.style.opacity = "1";
+  bar3.classList.remove("bar_croix__rotate");
 }
 
-
-
 // Première section
-
+// APPARITION DES TITRES ET NAVIGATION
 
 // gsap.from(".h1_introduction", {
 //   opacity: 0,
@@ -89,17 +86,21 @@ gsap.from(".roadtrip_description", {
 });
 
 let titre_timeline = gsap.timeline(),
-  mySplitText = new SplitText(".h1_introduction", { type: "chars" }),
+  mySplitText = new SplitText(".h1_introduction", {
+    type: "chars"
+  }),
   chars = mySplitText.chars; //an array of all the divs that wrap each character
 
-gsap.set(".h1_introduction", { perspective: 400 });
+gsap.set(".h1_introduction", {
+  perspective: 400
+});
 
 titre_timeline.from(chars, {
   duration: 2,
   opacity: 0,
   ease: "back",
-  stagger: 0.4, 
-  delay: 0.5,
+  stagger: 0.4,
+  delay: 0.8,
 });
 
 // let titre_timeline2 = gsap.timeline(),
@@ -120,7 +121,9 @@ titre_timeline.from(chars, {
 
 // Deuxième section
 
-// passage d'un scroll vertical à horizontal puis vertical
+// SCROLL HORIZONTAL DES PERSONNES 
+// FOR EACH SUR CHAQUE CARTE DE PERSONNE 
+// passage au scroll horizontal pour les autres sections (quand on est pas dans la section horizontale)
 let equipe_div = document.querySelectorAll(".equipe_div");
 
 equipe_div.forEach(section => {
@@ -131,7 +134,7 @@ equipe_div.forEach(section => {
     const personne_carte = section.querySelector('.section_carte')
 
     gsap.to(conteneur_cartes, {
-     x: () => {
+      x: () => {
         return -((conteneur_cartes.scrollWidth - window.innerWidth + window.innerWidth * 0.05) + (window.innerWidth / 2 - personne_carte.offsetWidth / 2))
       },
       ease: "none",
@@ -143,13 +146,13 @@ equipe_div.forEach(section => {
         pin: true,
         invalidateOnRefresh: true,
         anticipatePin: 1,
-        markers: true,
+        // markers: true,
       },
     });
 
   } else {
     ScrollTrigger.create({
-      markers: true,
+      // markers: true,
       trigger: section,
       start: () => "top top",
       pin: true,
@@ -160,58 +163,122 @@ equipe_div.forEach(section => {
 
 
 // Troisième section
+// partie avec drawsvg
 var timeline_map = gsap.timeline({
   repeat: 1,
 });
 
 let trajet = document.querySelector(".trajet");
-timeline_map.from(trajet,{
+let objectifs_div = document.querySelector(".objectifs_div");
+
+
+timeline_map.from(trajet, {
   scrollTrigger: {
     trigger: trajet,
-    start: 'top 60%',
-  //  end:'top trajet.scrollWidth',
-  end: "+=2000",
-  // start: () => "top center",
-  // end: () => "+=" + trajet.scrollWidth,
-    scrub: 1, markers: true,
+    start: 'center 60%',
+    //  end:'top trajet.scrollWidth',
+    end: "+=3000",
+    // start: () => "top center",
+    // end: () => "+=" + trajet.scrollWidth,
+    scrub: 1,
+    markers: true,
     pin: '.objectifs_div',
     anticipatePin: true,
   },
   ease: "none",
-  drawSVG:"0 0"
+  drawSVG: "0 0"
 });
 
-timeline_map.from(".objectifs_ottawa",{
+
+timeline_map.from(".map_ottawa", {
   opacity: 0,
   scrollTrigger: {
-    trigger: ".objectifs_ottawa",
-    start: 'top 0%',
-  //  end:'top trajet.scrollWidth',
-  end: "+=200",
-  // start: () => "top center",
-  // end: () => "+=" + trajet.scrollWidth,
-    scrub: 1, markers: true,
+    trigger: ".map_ottawa",
+    start: '+=100',
+    end: "+=150",
+    scrub: 1,
+    markers: true,
+  },
+  ease: "none",
+});
+
+timeline_map.from(".date_ottawa", {
+  opacity: 0,
+  scrollTrigger: {
+    trigger: ".map_ottawa",
+    start: '+=100',
+    end: "+=150",
+    scrub: 1,
+    markers: true,
   },
   ease: "none",
 });
 
 
-timeline_map.from(".images_dans_svg",{
+
+timeline_map.from(".map_montreal", {
   opacity: 0,
   scrollTrigger: {
-    trigger: ".images_dans_svg",
-    start: 'top 0%',
-  //  end:'top trajet.scrollWidth',
-  end: "+=200",
-  // start: () => "top center",
-  // end: () => "+=" + trajet.scrollWidth,
-    scrub: 1, markers: true,
+    trigger: ".map_montreal",
+    start: '+=349',
+    end: "+=350",
+    scrub: 1,
+    markers: true,
+  },
+  ease: "none",
+});
+
+timeline_map.from(".date_montreal", {
+  opacity: 0,
+  scrollTrigger: {
+    trigger: ".map_montreal",
+    start: '+=349',
+    end: "+=350",
+    scrub: 1,
+    markers: true,
+  },
+  ease: "none",
+});
+
+timeline_map.from(".date_montreal2", {
+  opacity: 0,
+  scrollTrigger: {
+    trigger: ".map_montreal",
+    start: '+=1000',
+    end: "+=1020",
+    scrub: 1,
+    markers: true,
+  },
+  ease: "none",
+});
+
+timeline_map.from(".map_quebec", {
+  opacity: 0,
+  scrollTrigger: {
+    trigger: ".map_quebec",
+    start: '+=850',
+    end: "+=852",
+    scrub: 1,
+    markers: true,
+  },
+  ease: "none",
+});
+
+timeline_map.from(".date_quebec", {
+  opacity: 0,
+  scrollTrigger: {
+    trigger: ".map_quebec",
+    start: '+=850',
+    end: "+=870",
+    scrub: 1,
+    markers: true,
   },
   ease: "none",
 });
 
 
-// Quatrième section  
+// Quatrième section 
+// juste une apparition de photos 
 let activites = document.querySelectorAll(".activite_carte");
 
 activites.forEach((element) => {
@@ -279,30 +346,24 @@ activites.forEach((element) => {
 })
 
 // Cinquième section
-
+// opacite et apparition des etoiles a la suite
 let avis_perso = document.querySelectorAll(".avis_column");
 // let avis_stars = document.querySelectorAll(".avis_starf");
 
 avis_perso.forEach((element) => {
-  let avis_stars = element.querySelectorAll(".avis_starf");
   let avis_nom_ville = element.querySelectorAll(".avis_nom_ville");
   let avis_ville = element.querySelectorAll(".avis_ville");
 
   gsap.set(avis_nom_ville, {
     opacity: 0,
-    // scale: 0,
   });
 
   gsap.to(avis_nom_ville, {
     duration: 2,
-    // autoAlpha: 1,
     opacity: 1,
-    // scale: 1,
     ease: "power2.out",
     scrollTrigger: {
       trigger: avis_nom_ville,
-      // start: "top center",
-      // end: "center center",
       scrub: true,
       toggleActions: "play resume none none"
     }
@@ -310,25 +371,19 @@ avis_perso.forEach((element) => {
 
   gsap.set(avis_ville, {
     opacity: 0,
-    // scale: 0,
   });
 
   gsap.to(avis_ville, {
     duration: 2,
-    // autoAlpha: 1,
     opacity: 1,
-    // scale: 1,
     ease: "power2.out",
     scrollTrigger: {
       trigger: avis_ville,
-      // start: "top center",
-      // end: "center center",
       scrub: true,
       toggleActions: "play resume none none"
     }
   });
 });
-
 
 let stars = gsap.timeline();
 stars.to("#star1", {
@@ -354,18 +409,17 @@ stars.to("#star1", {
   ScrollTrigger.create({
     animation: stars,
     trigger: ".avis_starf",
-    markers: true,
-    start: "center 90%",
+    // markers: true,
+    start: "center 50%",
     scrub: true,
-    end: "center 50%",
+    end: "center 30%",
     toggleActions: "play resume none reverse",
-    //scrub:true,
-    //pin:true,
   });
 
-  
-
 // Sixième section
+// conteneur de photos qu'on peut déplacer avec les mouvements de souris 
+// pas très très bien pour le responsive mobile mais j'ai replacé les images en colonne donc le mouve over est juste bloqué 
+// hover sur les images
 let conteneur_photos = document.querySelector('.galerie_photos');
 let carte_photos = document.querySelector('.galerie_carte');
 let galerie1 = document.querySelector('.galerie1');
@@ -409,9 +463,3 @@ document.querySelectorAll(".galerie_image").forEach(function (element) {
     animation.reverse();
   });
 });
-
-
-
-
-
-
